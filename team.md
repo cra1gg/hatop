@@ -33,7 +33,6 @@ Rahul Nakre will check all submissions to ensure they include all deliverables. 
 included before submission date. 
 
 Contingency Planning:
-If one of you drops out, I will kill you.
 In the case that someone drops the course, that person's tasks will be redistributed equally amoung remaining group members, again contingent on strengths and weaknesses.
 In the case that any group member misses a meeting, all group members will attempt to establish contact with the offending group member, and attempt to elicit a reason. If the reason is satisfactory, the members will provide the offending member with a synopsis of the meeting as well as the minutes. Otherwise, (something about peer evaluations idk)
 In the case that any group member fails to complete a task upon an agreed upon time, again a reason will be elicited and further action will be taken. In the case that a group member is unable to complete a task on-time because of its heavy difficulty/complexity, the user story may be reassigned or distributed amoung other group members
