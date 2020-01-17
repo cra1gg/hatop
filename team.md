@@ -37,7 +37,7 @@
 * Commit any stable changes/updates to user stories on corresponding branch. (e.g. for UserStory 27, we will make changes on the branch 'UserStory27')
 * Commit messages should concise, clear and written in present tense.
 * Commit messages should contain a brief summary of the changes
-* Only merge code from branches with code that has been thouroughly tested.
+* Only merge code from branches containing code that has been thouroughly tested.
 
 ## Roles and Division of Work:
 * Each group member will develop, test and review code.
