@@ -6,6 +6,7 @@
 *Derek Jang - jangdere
 *Kyle Jang - jangkyle
 *Micah Flemming - flemmi16
+*Davinder Jangra - jangrada
 
 
 ##Guidelines:
