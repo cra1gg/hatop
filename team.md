@@ -5,6 +5,7 @@
 *Shubham Sharma - shar1140
 *Derek Jang - jangdere
 *Kyle Jang - jangkyle
+*Micah Flemming - flemmi16
 
 
 ##Guidelines:
