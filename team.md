@@ -17,6 +17,8 @@
 * Discord (Backup)
 * Text/SMS (backup)
 
+All group members are present in a group conversation with each other on all three of these platforms, and are also connected with one another individually.
+
 ## Communication Response Times:
 * Messenger - Less than 1 hour
 * Discord - Less than 1 hour
@@ -27,9 +29,29 @@
 * Group members should also have an up-to-date version of the project repository to review code during the meeting if necessary.
 
 ## Group Meetings
-* meetings will either be face-to-face on campus or online.
-* Throughout meetings, expectations for the sprint will be discussed and any progress on UserStories from individual group memebers will be shared. 
+* Meetings will take place either face-to-face on campus or online.
+* Throughout meetings, expectations for the sprint will be discussed and any progress on UserStories from individual group members will be shared. 
 * Each group member should participate in discussion and share their thoughts, concerns and expectations.
+* The proposed meeting schedule is as follows
+
+|Time|Date | Purpose of Meeting | Location |
+|---|---|---|---|
+|Jan 25 2020 |10:00 AM |Sprint 0 briefing, confirm project details|UTM Campus|
+|Feb 1 2020|10:00 AM|Sprint 0 debrief, division of work for Sprint 1|UTM Campus|
+|Feb 10 2020|10:00 AM|Sprint 1 midpoint meeting|Facebook Messenger|
+|Feb 15 2020|10:00 AM|Sprint 1 debrief, division of work for Sprint 2|UTM Campus|
+|Feb 22 2020|10:00 AM|Sprint 2 midpoint meeting|Facebook Messenger|
+|Feb 29 2020|10:00 AM|Spring 2 debreif, division of work for Sprint 3|UTM Campus|
+|March 6 2020|10:00 AM|Sprint 3 midpoint meeting|Facebook Messenger|
+|March 14 2020|10:00 AM|Sprint 3 debreif, division of work for Spring 4|UTM Campus|
+|March 23 2020|10:00 AM|Sprint 4 midpoint meeting|UTM Campus|
+|March 28 2020|10:00 AM|Sprint 4 debreif, preparation for presentation|UTM Campus|
+|March 30 2020|10:00 AM|Preparation for presentation|Facebook Messenger|
+|April 1 2020|10:00 AM|Preparation for presentation|UTM Campus|
+
+* Rahul Nakre will record the minutes for each of these meetings
+* Briefing meetings and midpoint meetings are used to discuss division of work, concerns, questions, and any other issues relating to the current sprint.
+* Debrief meetings are used discuss any contentious points with the previous sprint, and how they can be resolved for the next sprints
 
 
 ## Version Control:
