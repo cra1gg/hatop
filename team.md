@@ -44,7 +44,7 @@ All group members are present in a group conversation with each other on all thr
 |Feb 29 2020|10:00 AM|Spring 2 debrief, division of work for Sprint 3|UTM Campus|
 |March 6 2020|10:00 AM|Sprint 3 midpoint meeting|Facebook Messenger|
 |March 14 2020|10:00 AM|Sprint 3 debrief, division of work for Spring 4|UTM Campus|
-|March 23 2020|10:00 AM|Sprint 4 midpoint meeting|UTM Campus|
+|March 23 2020|10:00 AM|Sprint 4 midpoint meeting|Facebook Messenger|
 |March 28 2020|10:00 AM|Sprint 4 debrief, preparation for presentation|UTM Campus|
 |March 30 2020|10:00 AM|Preparation for presentation|Facebook Messenger|
 |April 1 2020|10:00 AM|Preparation for presentation|UTM Campus|
