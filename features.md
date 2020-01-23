@@ -1,4 +1,4 @@
-Backlog of the main features
+# Main Features
 
  - attendance (something when they're not far far)
  - kahoot type quizzes
@@ -9,3 +9,5 @@ Backlog of the main features
  - mini piazza (offline posting questions)
  - teachers should be able to upload documents
  - schools and courses have seperate classes
+ 
+ TODO: Prioritize features
