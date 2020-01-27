@@ -1,4 +1,5 @@
-# Competing Products
+# **Competing Products**
+
 # 1. [TopHat](https://tophat.com/)
 
 ### Tophat is our main competition because it is the most widely used platform in the education system. For this reason, it is vital to differentiate our product
