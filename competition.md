@@ -17,7 +17,16 @@ Our platform is better for teachers as it shows in-depth statistics on a per-stu
 
 # 3. [iClicker](https://www.iclicker.com/)
 ## How is our product different?
-iClicker requires students to either purchase a physical clicker device, or purchase a subscription that can be used on their smartphone. iClicker also requires instructors to purchase a receiver so they can obtain the answers from students in the classroom. Our product would be completely virtual and would therefore require no hardware to be purchased by neither the students nor the instructor - 
+iClicker requires students to either purchase a physical clicker device, or purchase a subscription that can be used on their smartphone. iClicker also requires instructors to purchase a receiver so they can obtain the answers from students in the classroom. Our product would be completely virtual and would therefore require no hardware to be purchased by neither the students nor the instructor. On top of this, iClicker limits students and instructors to only multiple choice questions. Our platform would allow for both multiple choice and short answer questions.
+
 # 4. [Blackboard](https://www.blackboard.com/)
+## How is our product different?
+Blackboard is an entire ecosystem for educational institutions, meaning all content for a given course must be administered through Blackboard (with the exception of tests and exams). To this effect, Blackboard allows instructors to post quizzes and participation activities for students to complete. Our platform would be completely standalone and would be used only as a tool for instructors to conduct participation and knowledge-testing activities on. Our platform would not support the submission of assignments or the consolidation of marks from in-class work.
+
 # 5. [Canvas](https://canvas.instructure.com/)
+## How is our product different?
+Again, Canvas is an entire ecosystem for educational systems. UofT uses Canvas (previously used Blackboard) but still administers in-class activities through TopHat and other third-party platforms. 
+
 # 6. [Moodle](https://moodle.com/)
+## How is our product different?
+I honestly don't even know what this one is
