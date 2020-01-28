@@ -30,4 +30,4 @@ Again, Canvas is an entire ecosystem for educational systems. UofT uses Canvas (
 
 # 6. [Moodle](https://moodle.com/)
 ## How is our product different?
-Moodle is used primarily for instructors to host websites for a given course. Part of Moodle's functionality is allowing instructors to administrate quizzes and learning activities to students. This functionality closely matches our platform's sole functionality although again, our platform would be marketed as a standalone platform with quick setup and would allow instructors to easily deploy quizzes in minutes.
+Moodle is used primarily for instructors to host websites for a given course. Part of Moodle's functionality is allowing instructors to administer quizzes and learning activities to students. This functionality closely matches our platform's sole functionality although again, our platform would be marketed as a standalone platform with quick setup and would allow instructors to easily deploy quizzes in minutes.
