@@ -21,3 +21,4 @@ Our project will focus on the development of a student engagement platform, simi
 2 - Who are the users? What are the scenarions in which the application will be used?
 
 The users of the application will be University 
+
