@@ -36,4 +36,4 @@ We'll be using the Fibonacci sequence for estimating the user stories.
 - As Davinder/Anson (a student), I should be able to use the mobile version of the app so that I won't have to bring my laptop to school when I answer in class quizzes.
 
 ## Priority Level: Lowest
-- As Davinder/Anson (a student), I should be able to use the mobile version of the app so that I won't have to bring my laptop to school when I answer in class quizzes.
+- As Davinder/Anson (a student), I should be able to use a sleek UI and robust animations using the material pallete so that I can navigate the app effortlessly.
