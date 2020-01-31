@@ -6,12 +6,6 @@ Code must be:
 - Refactored to improve readability
 - Peer reviewed to ensure it operates as intended
 
-
-Maybe add this...
-- Have a front-end that is "well-polished"
-- deployed on something as well...it's a working version that can be used
-- 
-
 Unit/integration testing for all features should also be complete.
 
 ## 2. Test Finished
