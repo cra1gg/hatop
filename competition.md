@@ -4,7 +4,7 @@
 
 ### Tophat is our main competition because it is the most widely used platform in the education system. For this reason, it is vital to differentiate our product
 ## How is our product different?
-TopHat is a product which relies on subscriptions from students to be used. We see this as unfair as it is an additional cost on top of an already hefty tuition payment. Our aim is to make our product free to use, or only impose a cost on the institution as opposed to each student. Add something else maybe
+TopHat is a product which relies on subscriptions from students to be used. We see this as unfair as students must incur an additional cost on top of an already hefty tuition payment. Our aim is to make our product free to use, or only impose a cost on the institution as opposed to each student. Add something else maybe
 
 ## Better for specific users/scenarios?
 When answering questions in class, many students want to remain anonymous. Several key changes to the TopHat platform removed this anonymity and this [left fewer students wanting to participate](https://maxliboiron.files.wordpress.com/2014/12/barriers-to-using-top-hat.pdf). Our platform would aim to maintain the anonymity of students by not connecting their name to their answer.
@@ -31,11 +31,17 @@ Our product is better for students who do not have a disposable income and may n
 Our product is also better for teachers who don't want to take time at the beginning of lectures to setup and configure complex hardware such as recievers which can be time consuming, tedious, and can often times end up not working. These hardware solutions also depend on existing connections being present such as power outlets which may not always be the case.
 
 ## Why didn't iClicker do it first?
-iClicker is also heavily reliant on hardware because it is viewed as a legacy solution. It has only recently begun integrating software in its approach for evaluation. To compete with our product, iClicker would have to provide its student response app to students for free 
+iClicker is also heavily reliant on hardware because it is viewed as a legacy solution. It has only recently begun integrating software in its approach for evaluation. To compete with our product, iClicker would have to provide its student response app to students for free which wouldn't necessarily be feasible.
 
 # 4. [Blackboard](https://www.blackboard.com/)
 ## How is our product different?
 Blackboard is an entire ecosystem for educational institutions, meaning all content for a given course must be administered through Blackboard (with the exception of tests and exams). To this effect, Blackboard allows instructors to post quizzes and participation activities for students to complete. Our platform would be completely standalone and would be used only as a tool for instructors to conduct participation and knowledge-testing activities on. Our platform would not support the submission of assignments or the consolidation of marks from in-class work.
+
+## Better for specific users/scenarios?
+Our platform is better for old-school teachers who don't want to go through the tedious process of setting up an entire class on Blackboard and manually enrolling every student. It is better for the teacher who only wants to use technology as a means to gauge participation and some amount of evaluation. 
+
+## Why didn't Blackboard do it first?
+Blackboard is marketed as an all-in-one solution for classes giving the instructors the ability to host content (lecture slides, in-class notes), assignments, and quizzes. As a result, Blackboard is a massive platform with many smaller features. Some of these features were simply added so that they could be added to the feature list, and were not paid much attention to. As a result, Blackboard's quiz and test adminsteration platform is often seen as half-baked and unfunctional. Since the only objective of our platform is to administer evaluations, we feel are are able to create a better platform.
 
 # 5. [Canvas](https://canvas.instructure.com/)
 ## How is our product different?
@@ -49,3 +55,5 @@ Moodle is used primarily for instructors to host websites for a given course. Pa
 Our product is better for teachers who want to quickly gauge class participation or evaluate the class's knowledge without any tedious setup or class enrolment.    
 Our product is also better for students in that they don't require the approval of the teacher to join the class, so students who join classes late can still take part in graded evaluations without having to wait for the teacher to manually add them to the class.
 
+## Why didn't moodle do it first?
+Again, for the same reasons as Blackboard, Moodle is marketed as an all-in-one platform.
