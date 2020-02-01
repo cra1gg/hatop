@@ -1,5 +1,5 @@
 # Team Organization
-
+For sprint one, Rahul will create the sign-up page and Craig will create the log-in page. Additionally, Shubham will be in charge of creating a page allowing teachers to create enrollable classes, Derek will generate the database to store the class info, and Kyle will develop the join code for each individual class. Finally, Davinder will implement code for allowing students to enroll in classes using unique join codes, and Micah will implement code to keep track of individual attendance and quiz grades.
 
 # Decision-making
 To make decisions, we conducted a vote and used the majority rule. Typically, only one round of voting was necessary for us to come to a 
