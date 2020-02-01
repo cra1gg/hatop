@@ -12,9 +12,8 @@ user interface. These features are not required for the application to function 
 important. We prioritized the user stories based on whether or not they are required for the application to work as desired.
 
 # Meetings
-We conducted meetings both online and in person, however most of the time we communicated using Facebook Messenger and Discord. We chose 
-to use Facebook Messenger and Discord to communicate online because they both help facilitate the sharing of code snippets and syntax 
-highlighting due to their inbuilt markdown support. 
+We conducted meetings both online and in person, however most of the time we communicated using Facebook Messenger and Discord. Facebook Messenger and Discord was used because because they both help facilitate the sharing of code snippets and syntax 
+highlighting due to their built-in markdown support. 
 
 We met in person every Thursday, and communicated online throughout the week.
 
