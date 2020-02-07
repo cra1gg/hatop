@@ -1,9 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import SignUp from "./components/Auth/SignUp"
 import './App.css';
 
-function App() {
-  return (
+//function App() {
+
+class App extends React.Component {
+   render() {
+      return (
+        <div>
+          <BrowserRouter>
+              <div>
+                  <Switch>
+                      <Route path="/signup" component={SignUp} />
+                  </Switch>
+              </div>
+          </BrowserRouter>
+          </div>
+      );
+  }
+}
+  /*return (
     <div className="App">
       <header className="App-header">
       <form>
@@ -18,7 +36,7 @@ function App() {
       
       </header>
     </div>
-  );
-}
+  ); */
+
 
 export default App;
