@@ -20,3 +20,8 @@ app.listen(5000, () => {
         console.log("Connected");
     });
 });
+
+app.put("/Classroom", (request, response) => {
+    addClassroom = new Classroom(collection);
+    addClassroom.handle_PUT(request, response);
+});
