@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import SignUp from "./components/Auth/SignUp"
 import SignIn from "./components/Auth/SignIn"
-
+import StudentStats from "./components/Info/StudentStats"
 import './App.css';
 
 
@@ -15,8 +15,8 @@ class App extends React.Component {
               <div>
                   <Switch>
                       <Route path="/signup" component={SignUp} />
-                      <Route path="/signup" component={SignUp} />
-
+                      <Route path="/signin" component={SignIn} />
+	              <Route path="/studentstats" component={StudentStats}/>
                   </Switch>
               </div>
           </BrowserRouter>
