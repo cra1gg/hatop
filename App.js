@@ -22,6 +22,6 @@ app.listen(5000, () => {
 });
 
 app.put("/Classroom", (request, response) => {
-    addClassroom = new Classroom(collection);
+    var addClassroom = new Classroom(collection);
     addClassroom.handle_PUT(request, response);
 });
