@@ -14,3 +14,5 @@ class Classroom {
         })
     }
 }
+
+module.exports = Classroom;
