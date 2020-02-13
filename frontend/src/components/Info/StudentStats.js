@@ -40,7 +40,7 @@ class StudentStats extends React.Component {
                </tbody>
             </table>
 	    <h5> {this.state.studentName} | {this.state.studentId} </h5>
-         </div>
+        </div>
       )
    } 
 
