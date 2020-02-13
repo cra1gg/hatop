@@ -37,7 +37,9 @@ class SignIn extends React.Component {
 					</div>
 
 					<div className="input-field">
-						<button>Sign In</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
+							Sign In
+						</button> 
 					</div>
 
 				</form>
