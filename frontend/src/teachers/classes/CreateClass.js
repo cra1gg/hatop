@@ -43,7 +43,7 @@ class CreateClass extends React.Component {
 					</div>
 
 					<div className="input-field">
-						<a className="waves-effect waves-light btn">Add Class</a>
+						<a className="waves-effect waves-light btn" href="/">Add Class</a>
 					</div>
 
 				</form>
