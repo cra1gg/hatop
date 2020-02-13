@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import SignUp from "./components/Auth/SignUp"
 import SignIn from "./components/Auth/SignIn"
 import Home from "./components/Home/Home"
-
+import StudentStats from "./components/Info/StudentStats"
 import './App.css';
 
 
@@ -18,6 +18,7 @@ class App extends React.Component {
                       <Route path="/signup" component={SignUp} />
                       <Route path="/signin" component={SignIn} />
                       <Route path="" component={Home} />
+	                  <Route path="/studentstats" component={StudentStats}/>
                   </Switch>
               </div>
           </BrowserRouter>
