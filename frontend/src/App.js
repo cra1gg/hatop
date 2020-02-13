@@ -16,7 +16,7 @@ class App extends React.Component {
                   <Switch>
                       <Route path="/signup" component={SignUp} />
                       <Route path="/signin" component={SignIn} />
-	              <Route path="/studentstats" component={StudentStats}/>
+	                    <Route path="/studentstats" component={StudentStats}/>
                   </Switch>
               </div>
           </BrowserRouter>
