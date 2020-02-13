@@ -10,20 +10,6 @@ class EnrolClass extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
    }
 
-   
-   renderTable() {
-      return this.state.grades.map((grade, index) => {
-         const { id, title, mark, max_mark } = grade         
-	    return (
-            <tr key={id}>
-               <td>{title}</td>
-               <td>{mark}</td>
-               <td>{max_mark}</td>
-            </tr>
-         )
-      })
-   }
-
    handleChange(event) {
       this.setState({value: event.target.value});
    }
