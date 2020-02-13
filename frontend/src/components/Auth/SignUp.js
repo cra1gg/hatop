@@ -51,7 +51,9 @@ class SignUp extends React.Component {
 					</div>
 
 					<div className="input-field">
-						<button>Sign Up</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
+							Sign Up
+						</button> 
 					</div>
 
 				</form>
