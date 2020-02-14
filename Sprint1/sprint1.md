@@ -28,6 +28,6 @@ For User Story 8:
 * Davinder will allow students to enroll in a classroom using a unique join code.
 * Micah will create the webpage that shows individual student attendance and quiz grades.
 
-Spikes:
+## Spikes:
 * In order to estimate User Story 6, Derek and Kyle have to research how to build a RESTful API with Node.js and MongoDB.
 * In order to estimate User Story 8, Micah and Davinder have to research how to use React.js.
