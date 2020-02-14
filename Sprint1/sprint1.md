@@ -1,6 +1,11 @@
+## Team Capacity:
+* Team of 7
+* 2 weeks sprint (14 days)
+* 2 hours a day: 7*2*14 = 196 hours.
+
 ## Participants: 
-Team of 7, 2 weeks sprint (14 days), 2 hours a day: 7*2*14 = 196 hours.
 * Davinder
+* Shubham
 * Derek
 * Kyle
 * Micah
