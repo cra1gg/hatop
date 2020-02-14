@@ -1,0 +1,10 @@
+Craig D'Souza, Rahul Nakre, Micah Flemming, Davinder Jangra, Shubam Sharma, Kyle Jang, Derek Jang
+
+Attendance 2/2
+
+Features -- homepage / sign up/ sign in/ enrol in class/ started mongoDB (not connected with project yet) but the code for listener etc. is present/ manage classes page
+JIRA -- all user stories documented
+
+features -- 8/8
+
+Total = 10/10
