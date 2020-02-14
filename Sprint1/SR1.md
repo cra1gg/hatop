@@ -1,5 +1,5 @@
 # Participants
-Davinder, Shubham, Micah, Derek, Kyle, Rahul, Craig
+* Davinder, Shubham, Micah, Derek, Kyle, Rahul, Craig
 # Unfinished Tasks
 All user stories in sprint 1 have been completed.
 # Practices to Continue
