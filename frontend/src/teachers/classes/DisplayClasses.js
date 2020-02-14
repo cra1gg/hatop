@@ -9,7 +9,7 @@ const ClassList = ({classes}) => {
             <div className="col s12 m5 cards-container" key={cl.id}>
                 <div className="card blue-grey darken-2">
                     <div className="card-image">
-                        <img src={require("../images/test.jpg")} alt="" width="300" height="200"/>
+                        <img src={require("../images/background.jpeg")} alt="" width="300" height="200"/>
                     </div>
                     <div className="card-content white-text">
                         <span className="card-title">{cl.courseCode}</span>
