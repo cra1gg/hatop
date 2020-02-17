@@ -1,0 +1,29 @@
+h3, h4 {
+	font-family: Arial;
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	text-align: left;
+}
+
+.left {
+	margin: auto;
+	width: 50%;
+}
+
+.right {
+	margin: auto;
+	width: 50%;
+}
+
+.center {
+	margin: auto;
+	width: 80%;
+	padding: 5px;
+}

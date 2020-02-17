@@ -1,50 +1,63 @@
-import React from "react"
-
+import React, { Component } from "react"
+import './StudentStats.css'
 
 class StudentStats extends React.Component {
-
-   constructor(props) {
-      super(props)       
-	   this.state = { studentId: "Student ID", studentName: "Student Name", courseName: "CSC301 - Software Engineering", grades: [ { id: 1, title: 'Quiz 1', mark: 5, max_mark: 10 }, { id: 2, title: 'Quiz 2', mark: 5, max_mark: 10 }, { id: 3, title: 'Assignment 1', mark: 15, max_mark: 20 }]
-      }
-   }
-
+	
+	state = { studentId: "Student ID", studentName: "Student Name", courseCode: "Course Code", courseName: "Course Name", 
+		grades: [ { id: 1, title: 'Quiz 1', mark: 10, max_mark: 10 }, { id: 2, title: 'Quiz 2', mark: 10, max_mark: 10 }, 
+			{ id: 3, title: 'Assignment 1', mark: 20, max_mark: 20 }] }
    
-   renderTable() {
-      return this.state.grades.map((grade, index) => {
-         const { id, title, mark, max_mark } = grade         
-	    return (
-            <tr key={id}>
-               <td>{title}</td>
-               <td>{mark}</td>
-               <td>{max_mark}</td>
+  renderTable() {
+      return this.state.grades.map((grade) => {
+	 return (
+            <tr key={ grade.id }>
+               <td>{ grade.title }</td>
+               <td>{ grade.mark }</td>
+               <td>{ grade.max_mark }</td>
             </tr>
          )
       })
    }
+ 
 
    render() {
       return (
-         <div>
-            <h1 id='title'> { this.state.courseName } </h1>
-            <table id='students'>
-               <tbody>
+         <div> 
+	    <div class = "center">
+	    
+	    <div class = "left">
+            <h3 id='courseName' align="left"> { this.state.courseName } </h3>
+	    <h4 id='courseCode' align="left"> { this.state.courseCode } </h4>
+	    </div>
+
+	    <div class = "right">
+            <h3 id='studentName' align="right"> { this.state.studentName } </h3>
+	    <h4 id='StudentID' align="right"> { this.state.studentId } </h4>
+	    </div>
+
+	    <div class = "temp">
+	    <table id='students'>
+               
+	       <thead>
+	          
 	          <tr> 
-	          <b>
-	      	     <td>Type of Assesment</td>
-	      	     <td>Grade</td>
-	      	     <td>Max Grade</td>
-	          </b> 
+	      	     <th> Assesment </th>
+	      	     <th> Grade </th>
+	      	     <th> Max Grade </th>
 	          </tr>
-                  { this.renderTable() }
-               </tbody>
-            </table>
-	    <h5> {this.state.studentName} | {this.state.studentId} </h5>
+                  
+	       </thead>
+	       
+	       <tbody> { this.renderTable() } </tbody>
+            
+	    </table>
+	    </div>
+
+	    </div>
+
         </div>
       )
    } 
-
-
 }
 
 export default StudentStats
