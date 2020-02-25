@@ -9,8 +9,9 @@ function SignedOutLinks(props) {
         <ul className="right">
             <li><NavLink to="">Home</NavLink></li>
             <li><NavLink to="">Explore</NavLink></li>
-            <li><NavLink to="">Register</NavLink></li>
-            <li><NavLink to="">Log In</NavLink></li>
+            <li><NavLink to="/signin">Log In</NavLink></li>
+            <li><NavLink to="/signup">Register</NavLink></li>
+
         </ul>
         
     )
