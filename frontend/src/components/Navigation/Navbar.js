@@ -9,7 +9,9 @@ function Navbar(props) {
     return(
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
-                <Link to="/" className="brand-logo">Some Logo</Link>
+                <Link to="/" className="brand-logo">
+                    <img src="https://i.imgur.com/thofpKl.png" height="60" width="150" alt="HaTop" />
+                </Link>
                 {navbarLinks}
             </div>
         </nav>

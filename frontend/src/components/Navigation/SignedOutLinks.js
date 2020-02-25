@@ -11,12 +11,6 @@ function SignedOutLinks(props) {
             <li><NavLink to="">Explore</NavLink></li>
             <li><NavLink to="">Register</NavLink></li>
             <li><NavLink to="">Log In</NavLink></li>
-            <li><NavLink onClick={props.signOut} to='/'>Sign Out</NavLink></li>
-            <li>
-                <NavLink to="/" className="btn btn-floating black lighter-1">
-                    RN
-                </NavLink>
-            </li>
         </ul>
         
     )
