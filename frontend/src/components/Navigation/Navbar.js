@@ -10,7 +10,7 @@ function Navbar(props) {
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
                 <Link to="/" className="brand-logo">
-                    <img src="https://i.imgur.com/thofpKl.png" height="60" width="150" alt="HaTop" />
+                    <img src="https://i.imgur.com/J5Fldt4.png" height="60" width="160" alt="HaTop" />
                 </Link>
                 {navbarLinks}
             </div>
