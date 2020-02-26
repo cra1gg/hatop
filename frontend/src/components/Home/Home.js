@@ -143,16 +143,16 @@ export default function Pricing() {
                 />
                 <CardContent>
                   <ul>
-				  	  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+				  	  <Typography component="li" variant="subtitle1" align="center" key="idea1">
 					  	- Get good marks
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea2">
 					  	- Show that you actually showed up to class
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea3">
 					  	- bottom text
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea4">
 					  	- im running out of ideas
                       </Typography>
                   </ul>
