@@ -5,7 +5,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const classroom = require('./api/models/classroom');
 const classroomRoutes = require("./api/routes/classroomRoutes");
-const quizRoutes = require("./api/routes/quizRoutes");
+// const quizRoutes = require("./api/routes/quizRoutes");
+// const signupRoute = require("./api/routes/signupRoute");
+
+const bcrypt = require('bcrypt')
+
+
+
 
 var mongoose_uri = "mongodb+srv://avocado:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
 									"@cluster0-sbtzz.mongodb.net/test?retryWrites=true&w=majority"
@@ -46,7 +52,7 @@ app.use( (req, res, next) => {
 });
 
 app.use("/classroom", classroomRoutes);
-app.use("/quiz", quizRoutes);
+// app.use("/quiz", quizRoutes);
 
 
 /*app.use( (req, res, next) => {
@@ -54,6 +60,52 @@ app.use("/quiz", quizRoutes);
         message: "helo"
     });
 });*/
+
+// Basic login/signup
+const users = []
+
+
+app.get('/users', (req, res) => {
+    res.json(users)
+    
+})
+
+
+
+app.post('/user/signup', async (req, res) => {
+	try {
+		const salt = await bcrypt.genSalt()
+		const pwHash = await bcrypt.hash(req.body.password, 10)
+
+		const user = { name: req.body.name, password: pwHash }
+		users.push(user)
+		res.status(201).send()
+
+	} catch {
+		res.status(500).send()
+	}
+
+})
+
+
+app.post('/user/login', async (req, res) => {
+	const user = users.find(user => user.name === req.body.name)
+	if (user == null) {
+		return res.status(400).send("Can't find this user")
+	}
+
+	try {
+		if (await bcrypt.compare(req.body.password, user.password)) {
+			res.send("Logged in!")
+		} else {
+			res.send("Failed to login")
+		}
+	} catch {
+		res.status(500).send()
+
+	}
+
+})
 
 
 module.exports = app;
