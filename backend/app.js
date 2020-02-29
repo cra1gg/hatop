@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const classroom = require('./api/models/classroom');
 const classroomRoutes = require("./api/routes/classroomRoutes");
 const accountRoutes = require("./api/routes/accountRoutes");
+const quizRoutes = require("./api/routes/quizRoutes");
 
 var mongoose_uri = "mongodb+srv://avocado:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
 									"@cluster0-sbtzz.mongodb.net/test?retryWrites=true&w=majority"
@@ -47,6 +48,7 @@ app.use( (req, res, next) => {
 
 app.use("/classroom", classroomRoutes);
 app.use("/account", accountRoutes);
+app.use("/quiz", quizRoutes);
 
 
 /*app.use( (req, res, next) => {
