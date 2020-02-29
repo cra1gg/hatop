@@ -14,7 +14,7 @@
 |Davinder Jangra|jangrada|
 
 # Unfinished Tasks
-All user stories in sprint 1 have been completed.
+All user stories in sprint 2 have been completed.
 
 # Good Practices
 * Having 5 standups so that everyone in the group is updated on what is happening with the project
