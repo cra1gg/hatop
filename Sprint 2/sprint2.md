@@ -1,4 +1,4 @@
-# Sprint 1 Planning Meeting
+# Sprint 2 Planning Meeting
 ## Participants:
 | Member  | UTorID  |
 |---|---|
