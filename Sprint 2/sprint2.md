@@ -36,7 +36,26 @@ These stories are assigned as follows:
 - **[AUT-31]** - Shubham Sharma
 
 ## Team Capacity:
-* 10 ideal days x 7 team members = 70
+- We must take into account that there are a number of Computer Science midterms this weeks which may impact the capacity
+    - CSC358 - Wednesday Februrary 26 2020
+    - CSC338 - Wednesday February 26 2020
+    - CSC321 - Wednesday Februrary 26 2020
+    - CSC363 - Thursday Februrary 27 2020
+    - CSC384 - Friday Februrary 28 2020
+- Taking this into account, we have 7 members, the midterm breakdown is as follows
+    | Member  | Number of Midterms  | Ideal days |
+    |---|---|--|
+    |Craig D'Souza|2 midterms|8|
+    |Rahul Arunprakash Nakre|3 midterms|7|
+    |Shubham Sharma|3 midterms|7|
+    |Derek Jang|4 midterms|6|
+    |Kyle Jang|4 midterms|6|
+    |Micah Flemming|3 midterms|7|
+    |Davinder Jangra|4 midterms|6|
+ - Assuming each midterm takes 1 working day away from CSC301, we have the following capacity
+    - 8+7+7+6+6+7+6 = 47
+    - Out total capacity is 47
+   
 
 ## Spikes:
 * In order to build a navbar for [AUT-26], Craig needs to look up and understand routes and Material UI
