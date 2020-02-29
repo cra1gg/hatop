@@ -27,6 +27,14 @@ These stories will be broken down as follows
 - **[AUT-4]** As a teacher or student, I want to be able to sign out so that I can sign out of the application.
 - **[AUT-7]** 
     - **[AUT-30]** Setup Express Route and Mongoose Schema for quizQuestion
+    
+These stories are assigned as follows:
+- **[AUT-26]** - Rahul Nakre
+- **[AUT-4]** - Craig D'Souza
+- **[AUT-3]** - Derek Jang
+- **[AUT-10]** - Micah Flemming
+- **[AUT-31]** - Shubham Sharma
+
 ## Team Capacity:
 * 10 ideal days x 7 team members = 70
 
