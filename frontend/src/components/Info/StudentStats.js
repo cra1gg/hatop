@@ -5,44 +5,51 @@ class StudentStats extends React.Component {
 
    constructor(props) {
       super(props)       
-	   this.state = { studentId: "Student ID", studentName: "Student Name", courseName: "CSC301 - Software Engineering", grades: [ { id: 1, title: 'Quiz 1', mark: 5, max_mark: 10 }, { id: 2, title: 'Quiz 2', mark: 5, max_mark: 10 }, { id: 3, title: 'Assignment 1', mark: 15, max_mark: 20 }]
+	   this.state = { //state is by default an object
+         students: [
+            { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
+            { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
+            { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
+            { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
+         ]
       }
    }
 
-   
-   renderTable() {
-      return this.state.grades.map((grade, index) => {
-         const { id, title, mark, max_mark } = grade         
-	    return (
+   renderTableData() {
+      return this.state.students.map((student, index) => {
+         const { id, name, age, email } = student //destructuring
+         return (
             <tr key={id}>
-               <td>{title}</td>
-               <td>{mark}</td>
-               <td>{max_mark}</td>
+               <td>{id}</td>
+               <td>{name}</td>
+               <td>{age}</td>
+               <td>{email}</td>
             </tr>
          )
       })
    }
 
+   renderTableHeader() {
+      let header = Object.keys(this.state.students[0])
+      return header.map((key, index) => {
+         return <th key={index}>{key.toUpperCase()}</th>
+      })
+   }
+
+
    render() {
       return (
-         <div>
-            <h1 id='title'> { this.state.courseName } </h1>
+         <div className="container">
+            <h1 id='title'>React Dynamic Table</h1>
             <table id='students'>
                <tbody>
-	          <tr> 
-	          <b>
-	      	     <td>Type of Assesment</td>
-	      	     <td>Grade</td>
-	      	     <td>Max Grade</td>
-	          </b> 
-	          </tr>
-                  { this.renderTable() }
+                  <tr>{this.renderTableHeader()}</tr>
+                  {this.renderTableData()}
                </tbody>
             </table>
-	    <h5> {this.state.studentName} | {this.state.studentId} </h5>
-        </div>
+         </div>
       )
-   } 
+   }
 
 
 }
