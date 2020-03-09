@@ -24,12 +24,12 @@ class SignIn extends React.Component {
 
 	renderRedirect = () => {
 		if (this.state.redirect == 1) {
-		  return <Navbar isLogged={true}/>
+		  return true
 		} 
 	}
 
 	setSignInRedirect = () => {
-
+		this.state.redirect = 1
 	}
 
 	render() {
