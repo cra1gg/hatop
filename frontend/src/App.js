@@ -9,14 +9,17 @@ import StudentStats from "./components/Info/StudentStats"
 import EnrolClass from "./components/Info/EnrolClass"
 import QuizBuilder from "./components/QuizBuilder"
 import './App.css';
+import Navbar from './components/Navigation/Navbar';
 
 
 class App extends React.Component {
    render() {
       return (
         <div>
+        
           <BrowserRouter>
               <div>
+              <Navbar />
                   <Switch>
                       <Route path="/signup" component={SignUp}/>
                       <Route path="/signin" component={SignIn}/>
