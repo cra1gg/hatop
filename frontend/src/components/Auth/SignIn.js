@@ -1,4 +1,6 @@
 import React from "react"
+import { Redirect } from 'react-router-dom'
+import Navbar from '../Navigation/Navbar';
 
 
 class SignIn extends React.Component {
@@ -20,8 +22,19 @@ class SignIn extends React.Component {
 
 	}
 
+	renderRedirect = () => {
+		if (this.state.redirect == 1) {
+		  return true
+		} 
+	}
+
+	setSignInRedirect = () => {
+		this.state.redirect = 1
+	}
+
 	render() {
 		return (
+			<div>{this.renderRedirect()}
 			<div className="container">
 				<form className="white" onSubmit={this.handleSubmit}>
 					<h5 className="grey-text text-darken-3">Sign In</h5>
@@ -42,6 +55,7 @@ class SignIn extends React.Component {
 					</div>
 
 				</form>
+			</div>
 			</div>
 		)
 
