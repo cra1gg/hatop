@@ -2,7 +2,6 @@ var express     = require('express');
 var router      = express.Router();
 var bcrypt      = require('bcryptjs')
 var mongoose    = require("mongoose");
-// var db          = mongoose.connection;
 
 var User = require('../models/schemas/userSchema');
 
@@ -14,8 +13,6 @@ const users = []
 const MIN_LENGTH_INPUT = 4;
 const MAX_LENGTH_INPUT = 50;
 
-
-
 router.get('/all', (req, res) => {
     console.log("connected");
     res.json(users)
@@ -23,31 +20,55 @@ router.get('/all', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-    var user = { name: req.body.name, password: pwHash }
-    // backend validation
+    var password = req.body.password;
+    if(password == null || password.length < 4 || password.length > 50) {
+        res.status(400).send({ error: "Error: Password must be >=4 characters and <=50 characters." })
+    }
 
-
-
+	var salt = bcrypt.genSaltSync(10);
+	var pwHash = bcrypt.hashSync(password, salt);
 
 
     var user = new User({
         _id: new mongoose.Types.ObjectId(),
-        //rest of the parameters to be set
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        username: req.body.username,
+        password: pwHash
         
     })
-    user.save();
-    res.status(201).json({
-        message: "Created the user successfully.",
-        user: user
-    })
+    user.save()
+        .then(result => {
+            res.status(201).json({
+                success: "Created user ${req.body.username} successfully."
+            })
+        })
+        .catch(err => {
+            var errorString = ''
+            for(err in err.errors) {
+                errorString += err + ", ";
+            }
 
-    
+            if(err['code'] = 1100) { //Error code for duplicate username.
+                res.status(400).json(
+                    {
+                        error: `The username ${req.body.username} is already being used. Try another one.`
+                    }
+                )
+                return;
+            }
+            if (errorString.length > 0) {
+                errorString = errorString.substring(0, errorString.length - 2)
+            }
 
-    var salt = bcrypt.genSaltSync(10);
-    var pwHash = bcrypt.hashSync(req.body.password, salt);
+            res.status(400).json(
+                {
+                    error: `The field(s) ${errorString} are required and must be >=4 characters and <=50 characters.`
+                }
+            )
 
-    users.push(user)
-    res.status(201).send()
+        })    
 })
 
 
