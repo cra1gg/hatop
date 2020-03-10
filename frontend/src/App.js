@@ -21,20 +21,12 @@ class App extends React.Component {
               <div>
               <Navbar isLogged={false}/>
                   <Switch>
-<<<<<<< HEAD
-                      <Route path="/signup" component={SignUp}/>
-                      <Route path="/signin" component={SignIn}/>
-                      <Route path="/createClass" component={CreateClass}/>
-                      <Route path="/manageClasses" component={ManageClasses}/>
-	              <Route path="/studentstats" component={StudentStats}/>
-=======
                       <Route path="/signup" component={SignUp} />
                       <Route path="/signin" component={SignIn} />
                       <Route path="/createClass" component={CreateClass} />
                       <Route path="/manageClasses" component={ManageClasses} />
-	                  <Route path="/studentstats" component={StudentStats}/>
+	              <Route path="/studentstats" component={StudentStats}/>
                       <Route path="/viewclasses" component={ViewClasses}/> 
->>>>>>> 931733e31ed1f1b808b29a82d60d2decd4a42f75
                       <Route path="/enrolclass" component={EnrolClass}/>
 	              <Route path="/quizbuilder" component={QuizBuilder}/>
 	              <Route path="" component={Home}/>
