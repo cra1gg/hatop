@@ -11,7 +11,7 @@ const userRoutes = require("./api/routes/userRoutes");
 
 
 var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
-									"@hatop-5qek7.mongodb.net/test?retryWrites=true&w=majority"
+									"@hatop-5qek7.mongodb.net/hatop?retryWrites=true&w=majority"
 
 var mongoose_options = { useNewUrlParser: true, useUnifiedTopology: true};								
 mongoose.connect(mongoose_uri, mongoose_options)
