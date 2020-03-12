@@ -1,11 +1,18 @@
-import React from "react"
+import React from "react";
+import axios from "axios";
 import Navbar from '../../components/Navigation/Navbar';
+
 
 class SignUp extends React.Component {
 	state = {
+		username: "",
+		first_name: "",
+		last_name: "",
 		email: "",
-		firstName: "",
-		lastName: ""
+		password: "",
+		user_type: "",
+		error: "",
+		success: ""
 	}
 
 
@@ -14,16 +21,35 @@ class SignUp extends React.Component {
 		this.setState({
 			[id]: value
 		})
+		console.log(this.state);
 	}
+
 
 	handleSubmit = (event) => {
-		event.preventDefault()
-		
-		// Make this method later
-		//this.props.signUp(this.state)
-		
-	}
+		event.preventDefault();
+		const userCreds = {
+			username: this.state.username,
+			password: this.state.password,
+			first_name: this.state.first_name,
+			last_name: this.state.last_name,
+			email: this.state.email,
+			user_type: this.state.user_type
+		}
+		axios.post(`http://localhost:3000/user/signup`, userCreds)
+			.then(res => {
+				this.setState({
+					success: res.data.success,
+					error: ""	
+				})
 
+			}, (error) => {
+				this.setState({
+					error: error.response.data.error,
+					success: ""
+				})
+			});
+
+	}
 	render() {
 		return (
 			<div>
@@ -33,17 +59,22 @@ class SignUp extends React.Component {
 					<h5 className="grey-text text-darken-3">Sign Up</h5>
 
 					<div className="input-field">
-						<label htmlFor="email">First Name</label>
-						<input type="text" id="firstName" onChange={this.handleChange}/>
+						<label htmlFor="first_name">First Name</label>
+						<input type="text" id="first_name" onChange={this.handleChange}/>
 					</div>
 					
 					<div className="input-field">
-						<label htmlFor="email">Last Name</label>
-						<input type="text" id="lastName" onChange={this.handleChange}/>
+						<label htmlFor="last_name">Last Name</label>
+						<input type="text" id="last_name" onChange={this.handleChange}/>
 					</div>
 					<div className="input-field">
 						<label htmlFor="email">Email</label>
 						<input type="email" id="email" onChange={this.handleChange}/>
+					</div>
+
+					<div className="input-field">
+						<label htmlFor="username">Username</label>
+						<input type="text" id="username" onChange={this.handleChange}/>
 					</div>
 
 					<div className="input-field">
@@ -52,23 +83,27 @@ class SignUp extends React.Component {
 					</div>
 
 
-					<form action="#">
 					<p><label><span>Are you a student or teacher?</span></label></p>
 					<p>
 					<label>
-						<input class="with-gap" name="yourchoice" type="radio" checked />
+						<input className="with-gap" name="user_type" value="student" id="user_type" type="radio" onChange={this.handleChange} />
 						<span>Student</span>
 					</label>
 					</p>
 					<p>
 					<label>
-						<input class="with-gap" name="yourchoice" type="radio" />
-						<span>Teacher</span>
+						<input className="with-gap" name="user_type" id="user_type" value="instructor" type="radio" onChange={this.handleChange}/>
+						<span>Instructor</span>
 					</label>
 					</p> 
-				</form>
+
+
+					<p id="error" style={{color:'red'}}>{this.state.error}</p>
+					<p id="success" style={{color:'green'}}>{this.state.success}</p>
+
+
 					<div className="input-field">
-						<button type="button" class="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
+						<button type="submit" className="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
 							Sign Up
 						</button> 
 					</div>
