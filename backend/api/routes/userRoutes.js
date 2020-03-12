@@ -5,17 +5,6 @@ var mongoose    = require("mongoose");
 
 var User = require('../models/schemas/userSchema');
 
-const users = []
-
-
-
-// Left to do: login and check if pw valid => authenticate. Axios to hit endpoints.
-
-router.get('/all', (req, res) => {
-    console.log("connected");
-    res.json(users)
-    
-})
 
 router.post('/signup', (req, res) => {
     var password = req.body.password;
@@ -34,7 +23,8 @@ router.post('/signup', (req, res) => {
         last_name: req.body.last_name,
         email: req.body.email,
         username: req.body.username,
-        password: pwHash
+        password: pwHash,
+        user_type: req.body.user_type
         
     })
     user.save()
@@ -48,6 +38,14 @@ router.post('/signup', (req, res) => {
             for(err in err.errors) {
                 errorString += err + ", ";
             }
+            if(err === "user_type") {
+                res.status(400).json(
+                    {
+                        error: `The usertype must be either instructor or student. It cannot be ${req.body.user_type}.`
+                    })
+                    return;
+
+            }
 
             if(err['code'] = 1100) { //Error code for duplicate username.
                 res.status(400).json(
@@ -57,6 +55,7 @@ router.post('/signup', (req, res) => {
                 )
                 return;
             }
+
             if (errorString.length > 0) {
                 errorString = errorString.substring(0, errorString.length - 2)
             }
@@ -98,7 +97,6 @@ router.post('/login', (req, res) => {
         .exec()                     // execute query
         .then(doc => {
             if(doc.length) {
-                // console.log()
                 if (bcrypt.compareSync(password, doc[0].password)) {
                     console.log(doc[0].password);
                     res.status(200).json({
@@ -118,7 +116,6 @@ router.post('/login', (req, res) => {
             }
 
 
-            // return 409 error if password is incorrect. or the username doesn't.
         })
         .catch(err => {
             console.log(err);
@@ -128,27 +125,6 @@ router.post('/login', (req, res) => {
                 }
             );
         })
-
-
-
-
-
-    // var user = users.find(user => user.name === req.body.name)
-    // var result = {};
-	// if (user == null) {
-	// 	return res.status(400).send()
-	// }
-
-	// try {
-	// 	if (bcrypt.compare(req.body.password, user.password)) {
-	// 		res.send("Logged in!")
-	// 	} else {
-	// 		res.send("Failed to login")
-	// 	}
-	// } catch {
-	// 	res.status(500).send()
-
-	// }
 
 })
 
