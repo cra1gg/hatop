@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
-const Questions = ({questions}) => {
+const Questions = ({questions, removeQuestion}) => {
 
 	const questionList = questions.length ? (
 		questions.map(question => {
@@ -11,7 +13,7 @@ const Questions = ({questions}) => {
 				   <h6 className="center black-text"> {question.id} </h6>
 				  </div>
 
-				  <div className="col s3">
+				  <div className="col s2">
 				   <p className="center black-text"> {question.type} </p>
 				  </div>
 				
@@ -21,6 +23,10 @@ const Questions = ({questions}) => {
 				  
 				  <div className="col s4">
 				   <p className="center black-text"> {question.answer}</p>
+				  </div>
+
+				  <div className="col s1">
+				   <IconButton aria-label="delete" color="default" onClick={() => {removeQuestion(question.id)}}> <CloseIcon/> </IconButton>
 				  </div>
 
 				 </div>
@@ -40,7 +46,7 @@ const Questions = ({questions}) => {
 			   <h6 className="center black-text"> # </h6>
 			  </div>
 		
-		          <div className="col s3">
+		          <div className="col s2">
 			   <p className="center black-text"> Type  </p>
 			  </div>
 
@@ -51,8 +57,10 @@ const Questions = ({questions}) => {
 			  <div className="col s4">
 			   <p className="center black-text"> Answer </p>
 			  </div>
-			  
-			 </div>
+		
+		          <div className="col s1">
+			  </div> 
+		         </div>
 	        </div>
 
 		{ questionList } 
