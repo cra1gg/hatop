@@ -1,12 +1,16 @@
 import React from "react"
 import axios from "axios"
+import { useHistory } from 'react-router-dom';
+import Navbar from '../Navigation/Navbar';
+import { Link } from "react-router-dom"
 
 class SignIn extends React.Component {
 	state = {
 		userName: "",
 		password: "",
 		error: "",
-		success: ""
+		success: "",
+		redirect: false
 	}
 
 	handleChange = (event) => {
@@ -39,8 +43,30 @@ class SignIn extends React.Component {
 
 	}
 
+	renderRedirect = () => {
+		if (this.state.redirect) {
+			return false
+		}
+	}
+
+	setRedirect = () => {
+		this.setState({
+			redirect: true
+		  })
+		this.render()
+	}
+
+	routeChange=()=> {
+		let path = `/test`;
+		let history = useHistory();
+		history.push(path);
+	  }
+
 	render() {
 		return (
+			<div>
+			<div>
+				<Navbar isLogged={false}/>
 			<div className="container">
 				<form className="white" onSubmit={this.handleSubmit}>
 					<h5 className="grey-text text-darken-3">Sign In</h5>
@@ -54,7 +80,7 @@ class SignIn extends React.Component {
 						<input type="password" id="password" onChange={this.handleChange}/>
 					</div>
 
-					<p id="error" style={{color:'red'}}>{this.state.error}</p>
+          <p id="error" style={{color:'red'}}>{this.state.error}</p>
 					<p id="success" style={{color:'green'}}>{this.state.success}</p>
 
 					<div className="input-field">
@@ -62,8 +88,11 @@ class SignIn extends React.Component {
 							Sign In
 						</button> 
 					</div>
-
 				</form>
+      	<Link to="/viewClasses" className="brand-logo" type="button" class="btn btn-primary btn-lg btn-block active">Sign In</Link>
+
+			</div>
+			</div>
 			</div>
 		)
 

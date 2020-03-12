@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Navbar from '../../components/Navigation/Navbar';
+
 
 class SignUp extends React.Component {
 	state = {
@@ -50,7 +52,9 @@ class SignUp extends React.Component {
 	}
 	render() {
 		return (
-			<div className="container">
+			<div>
+				<Navbar isLogged={false}/>
+				<div className="container">
 				<form className="white" onSubmit={this.handleSubmit}>
 					<h5 className="grey-text text-darken-3">Sign Up</h5>
 
@@ -104,6 +108,7 @@ class SignUp extends React.Component {
 						</button> 
 					</div>
 				</form>
+			</div>
 			</div>
 		)
 

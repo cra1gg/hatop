@@ -9,6 +9,7 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import Navbar from '../Navigation/Navbar';
 
 function Copyright() {
   return (
@@ -91,6 +92,8 @@ export default function Pricing() {
   const classes = useStyles();
 
   return (
+    <div>
+				<Navbar isLogged={false}/>
     <React.Fragment>
       <CssBaseline />
       {/* Hero unit */}
@@ -143,16 +146,16 @@ export default function Pricing() {
                 />
                 <CardContent>
                   <ul>
-				  	  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+				  	  <Typography component="li" variant="subtitle1" align="center" key="idea1">
 					  	- Get good marks
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea2">
 					  	- Show that you actually showed up to class
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea3">
 					  	- bottom text
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  <Typography component="li" variant="subtitle1" align="center" key="idea4">
 					  	- im running out of ideas
                       </Typography>
                   </ul>
@@ -188,5 +191,6 @@ export default function Pricing() {
       </Container>
       {/* End footer */}
     </React.Fragment>
+    </div>
   );
 }
