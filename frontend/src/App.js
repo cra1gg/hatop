@@ -19,7 +19,6 @@ class App extends React.Component {
         <div>
           <BrowserRouter>
               <div>
-              <Navbar isLogged={false}/>
                   <Switch>
                       <Route path="/signup" component={SignUp} />
                       <Route path="/signin" component={SignIn} />

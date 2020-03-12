@@ -5,10 +5,9 @@ const quizSchema = mongoose.Schema({
     courseCode: { type: String, required: true },
 	name: { type: String, required: true },
     questions: [{ 
-        id: { type: String, required: true },
-        type: { type: String, required: true },
-        content: { type: String, required: true },
-        answer: { type: String, required: true }
+        quiz_question_id: { type: String, required: true },
+        user_id: { type: String},
+        student_answer: { type: String}
      }],
 	dateCreated: { type: Date, required: true },
 });

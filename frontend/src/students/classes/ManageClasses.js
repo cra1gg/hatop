@@ -1,5 +1,6 @@
 import React from "react"
 import DisplayClasses from "./DisplayClasses"
+import Navbar from '../../components/Navigation/Navbar';
 
 class ManageClasses extends React.Component {
 	constructor(props) {
@@ -17,8 +18,11 @@ class ManageClasses extends React.Component {
 
 	render() {
         return (
+			<div>
+				<Navbar isLogged={true}/>
 			<div className="container">
 				<DisplayClasses classes={this.state.classes} />
+			</div>
 			</div>
 		)
 
