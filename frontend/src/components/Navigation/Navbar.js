@@ -6,9 +6,8 @@ import { connect } from "react-redux"
 
 function Navbar(props) {
     const isLogged  = props.isLogged
-    const navbarLinks = <SignedInLinks/>
     // Use this line isntead once the redux store works
-    //const navbarLinks = isLogged ? <SignedInLinks /> : <SignedOutLinks />
+    const navbarLinks = isLogged ? <SignedInLinks /> : <SignedOutLinks />
 
     if (isLogged) {
         return(

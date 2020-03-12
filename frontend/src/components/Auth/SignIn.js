@@ -1,12 +1,14 @@
 import React from "react"
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import Navbar from '../Navigation/Navbar';
+import { Link } from "react-router-dom"
 
 
 class SignIn extends React.Component {
 	state = {
 		userName: "",
-		password: ""
+		password: "",
+		redirect: false
 	}
 
 
@@ -23,18 +25,29 @@ class SignIn extends React.Component {
 	}
 
 	renderRedirect = () => {
-		if (this.state.redirect == 1) {
-		  return true
-		} 
+		if (this.state.redirect) {
+			return false
+		}
 	}
 
-	setSignInRedirect = () => {
-		this.state.redirect = 1
+	setRedirect = () => {
+		this.setState({
+			redirect: true
+		  })
+		this.render()
 	}
+
+	routeChange=()=> {
+		let path = `/test`;
+		let history = useHistory();
+		history.push(path);
+	  }
 
 	render() {
 		return (
-			<div>{this.renderRedirect()}
+			<div>
+			<div>
+				<Navbar isLogged={false}/>
 			<div className="container">
 				<form className="white" onSubmit={this.handleSubmit}>
 					<h5 className="grey-text text-darken-3">Sign In</h5>
@@ -47,14 +60,10 @@ class SignIn extends React.Component {
 						<label htmlFor="password">Password</label>
 						<input type="password" id="password" onChange={this.handleChange}/>
 					</div>
-
-					<div className="input-field">
-						<button type="button" class="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
-							Sign In
-						</button> 
-					</div>
+					<Link to="/viewClasses" className="brand-logo" type="button" class="btn btn-primary btn-lg btn-block active">Sign In</Link>
 
 				</form>
+			</div>
 			</div>
 			</div>
 		)

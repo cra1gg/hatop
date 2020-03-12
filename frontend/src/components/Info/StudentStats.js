@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import './StudentStats.css'
+import Navbar from '../../components/Navigation/Navbar';
 
 class StudentStats extends React.Component {
 	
@@ -30,6 +31,8 @@ class StudentStats extends React.Component {
 
    render() {
       return (
+         <div>
+				<Navbar isLogged={true}/>
       <div className="container">
 	    <div class = "center">
 	    
@@ -62,7 +65,7 @@ class StudentStats extends React.Component {
 	    </div>
 
 	    </div>
-
+       </div>
         </div>
       )
    } 

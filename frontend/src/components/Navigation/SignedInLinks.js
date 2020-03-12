@@ -7,12 +7,13 @@ function SignedInLinks(props) {
 
     return(
         <ul className="right">
-            <li><NavLink to="">My Classes</NavLink></li>
-            <li><NavLink to="">Grades</NavLink></li>
+            <li><NavLink to="/viewClasses">My Classes</NavLink></li>
+            <li><NavLink to="/studentStats">Grades</NavLink></li>
+            <li><NavLink to="/enrolClass">Enrol in a Class</NavLink></li>
             <li><NavLink to='/'>Sign Out</NavLink></li>
             <li>
                 <NavLink to="/" className="btn btn-floating black lighter-1">
-                    RN
+                    CD
                 </NavLink>
             </li>
         </ul>
