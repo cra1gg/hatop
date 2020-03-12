@@ -10,7 +10,7 @@ class StudentStats extends React.Component {
   renderTable() {
       return this.state.grades.map((grade) => {
 	 return (
-            <tr key={ grade.id }>
+               <tr key={ grade.id }>
                <td>{ grade.title }</td>
                <td>{ grade.mark }</td>
                <td>{ grade.max_mark }</td>
@@ -19,6 +19,14 @@ class StudentStats extends React.Component {
       })
    }
  
+
+   renderTableHeader() {
+      let header = Object.keys(this.state.students[0])
+      return header.map((key, index) => {
+         return <th key={index}>{key.toUpperCase()}</th>
+      })
+   }
+
 
    render() {
       return (
@@ -58,6 +66,7 @@ class StudentStats extends React.Component {
         </div>
       )
    } 
+
 }
 
 export default StudentStats

@@ -1,0 +1,10 @@
+attendance: 2/2 (One student had an interview)
+
+features: nav bar/ home page/ sign out features/ create a class feature/ enroll in a class/ student stats/ database schema
+marks: 8/8
+
+
+JIRA: all user stories present, estimates there, sprint 2 is there
+
+
+total: 10/10

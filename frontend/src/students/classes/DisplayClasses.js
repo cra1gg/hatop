@@ -17,8 +17,7 @@ const ClassList = ({classes}) => {
                         <span>{cl.desc}</span>
                     </div>
                     <div className="card-action">
-                        <a href="/">View As Student</a>
-                        <a href="/">View As Instructor</a>
+                        <a href="/">View</a>
                     </div>
                 </div>
             </div>
