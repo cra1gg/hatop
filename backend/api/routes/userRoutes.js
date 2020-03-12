@@ -7,6 +7,7 @@ var User = require('../models/schemas/userSchema');
 
 
 router.post('/signup', (req, res) => {
+    console.log(req.body);
     var password = req.body.password;
     if(password == null || password.length < 4 || password.length > 50) {
         res.status(400).send({ error: "Error: Password must be >=4 characters and <=50 characters." })
@@ -71,6 +72,7 @@ router.post('/signup', (req, res) => {
 
 
 router.post('/login', (req, res) => {
+    console.log(req.body);
 	var username = req.body.username;
 	var password = req.body.password;
 

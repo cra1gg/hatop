@@ -1,22 +1,41 @@
 import React from "react"
-
+import axios from "axios"
 
 class SignIn extends React.Component {
 	state = {
 		userName: "",
-		password: ""
+		password: "",
+		error: "",
+		success: ""
 	}
-
 
 	handleChange = (event) => {
 		const {id, value} = event.target
 		this.setState({
 			[id]: value
 		})
+
 	}
 
 	handleSubmit = (event) => {
-		event.preventDefault()
+		event.preventDefault();
+		const userCreds = {
+			username: this.state.userName,
+			password: this.state.password
+		}
+		axios.post(`http://localhost:3000/user/login`, userCreds)
+			.then(res => {
+				this.setState({
+					success: res.data.success,
+					error: ""	
+				})
+
+			}, (error) => {
+				this.setState({
+					error: error.response.data.error,
+					success: ""
+				})
+			});
 
 	}
 
@@ -26,7 +45,7 @@ class SignIn extends React.Component {
 				<form className="white" onSubmit={this.handleSubmit}>
 					<h5 className="grey-text text-darken-3">Sign In</h5>
 					<div className="input-field">
-						<label htmlFor="userName">User Name</label>
+						<label htmlFor="userName">Username</label>
 						<input type="text" id="userName" onChange={this.handleChange}/>
 					</div>
 
@@ -35,8 +54,11 @@ class SignIn extends React.Component {
 						<input type="password" id="password" onChange={this.handleChange}/>
 					</div>
 
+					<p id="error" style={{color:'red'}}>{this.state.error}</p>
+					<p id="success" style={{color:'green'}}>{this.state.success}</p>
+
 					<div className="input-field">
-						<button type="button" class="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
+						<button type="submit" className="btn btn-primary btn-lg btn-block active" onClick={this.setSignInRedirect}>
 							Sign In
 						</button> 
 					</div>
