@@ -3,6 +3,7 @@ import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
+import Navbar from '../Navigation/Navbar';
 
 
 class EnrolClass extends React.Component {
@@ -27,6 +28,8 @@ class EnrolClass extends React.Component {
 
    render() {
       return (
+         <div>
+				<Navbar isLogged={true}/>
          <div className="container">
             <h3> Enrol in a Course </h3> <hr/>
             <form onSubmit={this.handleSubmit}>
@@ -73,6 +76,7 @@ class EnrolClass extends React.Component {
                <input type="submit" class="btn btn-primary btn-lg btn-block active" value="Submit" />
 
             </form>
+        </div>
         </div>
       )
    } 

@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const classroom = require('./api/models/classroom');
 const classroomRoutes = require("./api/routes/classroomRoutes");
+const accountRoutes = require("./api/routes/accountRoutes");
 const quizRoutes = require("./api/routes/quizRoutes");
 var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
 							"@hatop-5qek7.mongodb.net/test?retryWrites=true&w=majority";
@@ -45,6 +46,7 @@ app.use( (req, res, next) => {
 });
 
 app.use("/classroom", classroomRoutes);
+app.use("/account", accountRoutes);
 app.use("/quiz", quizRoutes);
 
 
