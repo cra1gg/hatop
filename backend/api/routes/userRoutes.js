@@ -7,6 +7,33 @@ var User = require('../models/schemas/userSchema');
 
 
 router.post('/signup', (req, res) => {
+    // console.log(req.body);
+	var username = req.body.username;
+	var password = req.body.password;
+    var first_name = req.body.first_name;
+    var last_name = req.body.last_name;
+    var email = req.body.email;
+    var user_type = req.body.user_type;
+	var result = {};
+	var userInfo = {'Username': username, 'Password': password, 'First name': first_name, 'Last name': last_name, 'email': email, 'user_type': user_type};
+    console.log(userInfo);
+	for(info in userInfo) {
+		if(userInfo[info] == null) {
+			res.status(400);
+			result["error"] = `Error: ${info} is not defined.`;
+			res.json(result);
+			return;
+		}
+		if(userInfo[info].length < 4 || userInfo.length > 50) {
+			res.status(400);
+			result["error"] = `${info} length must be >= 4 characters and <= 50 characters.`;
+			res.json(result);
+			return;
+		}
+	}
+    
+
+    
     console.log(req.body);
     var password = req.body.password;
     if(password == null || password.length < 4 || password.length > 50) {

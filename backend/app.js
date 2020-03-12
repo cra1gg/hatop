@@ -37,20 +37,8 @@ app.use(bodyParser.json())
 
 
 
-app.use(cors());
-// adding headers to prevent CORS errors
-// app.use( (req, res, next) => {
-// 	// '*' means access to every origin
-// 	res.header("Acces-Control-Allow-Origin", "*");
-// 	res.header("Access-Control-Allow-Headers", 
-// 		"Origin, X-Requested-With, Content-Type, Accept, Authorization");
+app.use(cors()); // This prevents cors errors without having to set the headers manually.
 
-// 	if (req.method === "OPTIONS") {
-// 		res.header("Acess-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-// 		return res.status(200).json({});
-// 	}
-// 	next();
-// });
 
 app.use("/classroom", classroomRoutes);
 // app.use("/quiz", quizRoutes);
