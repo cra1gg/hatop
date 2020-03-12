@@ -6,9 +6,8 @@ const mongoose = require("mongoose");
 const classroom = require('./api/models/classroom');
 const classroomRoutes = require("./api/routes/classroomRoutes");
 const quizRoutes = require("./api/routes/quizRoutes");
-
-var mongoose_uri = "mongodb+srv://avocado:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
-									"@cluster0-sbtzz.mongodb.net/test?retryWrites=true&w=majority"
+var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
+							"@hatop-5qek7.mongodb.net/test?retryWrites=true&w=majority";
 
 var mongoose_options = { useNewUrlParser: true, useUnifiedTopology: true};								
 mongoose.connect(mongoose_uri, mongoose_options)
