@@ -11,7 +11,7 @@ const cors = require('cors')
 
 var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
 									"@hatop-5qek7.mongodb.net/users?retryWrites=true&w=majority"
-const accountRoutes = require("./api/routes/accountRoutes");
+// const accountRoutes = require("./api/routes/accountRoutes");
 const quizRoutes = require("./api/routes/quizRoutes");
 
 var mongoose_options = { useNewUrlParser: true, useUnifiedTopology: true};								
@@ -41,7 +41,7 @@ app.use(bodyParser.json())
 app.use(cors()); // This prevents cors errors without having to set the headers manually.
 
 app.use("/classroom", classroomRoutes);
-app.use("/account", accountRoutes);
+// app.use("/account", accountRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/user", userRoutes);
 
