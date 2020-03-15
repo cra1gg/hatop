@@ -1,0 +1,10 @@
+group: autonomousAvacadoes
+
+attendance: 2/2
+
+features: 8/8
+login validation/ view classes (with classes)/ sign out/ re-modeled schemas/ quiz answers being saved into schema now
+
+JIRA: all tasks documented, remember to mark them all done next time
+
+total: 10/10
