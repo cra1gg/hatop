@@ -9,7 +9,10 @@ const classroomSchema = mongoose.Schema({
 	quizlets: { type: Array },
 	marks: [{
 		student_id: { type: String, required: true, unique: true },
-		mark: { type: Number, required: true, unique: true }
+		student_name: { type: String, required: true },
+		title: { type: String, required: true },
+		mark: { type: Number, required: true },
+		max_mark: { type: Number, required: true }
 	}]
 });
 

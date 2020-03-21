@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router()
-const ClassroomModel = require("../models/classroom");
+const ClassroomModel = require("../controllers/classroomController");
 
-var classroomModel = new ClassroomModel();
+//var classroomModel = new ClassroomModel();
 
-router.put("/", classroomModel.handle_PUT);
-router.get("/", classroomModel.handle_GET);
-
+router.put("/", (req, res) => {
+    ClassroomModel.handle_PUT(req, res)
+});
+router.get("/:classroom_id", (req, res) => {
+    ClassroomModel.handle_GET_class(req, res)
+});
 
 module.exports = router;
