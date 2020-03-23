@@ -12,8 +12,6 @@ th, td {
 	text-align: left;
 }
 
-
-
 nav {
 	display: block;
 	background: black;
@@ -42,6 +40,5 @@ button {
 
 .center {
 	margin: auto;
-	width: 80%;
 	padding: 5px;
 }

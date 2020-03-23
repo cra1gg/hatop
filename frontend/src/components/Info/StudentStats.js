@@ -1,25 +1,46 @@
 import React, { Component } from "react"
 import './StudentStats.css'
 import Navbar from '../../components/Navigation/Navbar';
+import axios from "axios";
 
 class StudentStats extends React.Component {
 	
-	state = { studentId: "Student ID", studentName: "Student Name", courseCode: "Course Code", courseName: "Course Name", 
-		grades: [ { id: 1, title: 'Quiz 1', mark: 10, max_mark: 10 }, { id: 2, title: 'Quiz 2', mark: 10, max_mark: 10 }, 
-			{ id: 3, title: 'Assignment 1', mark: 20, max_mark: 20 }] }
-   
-  renderTable() {
-      return this.state.grades.map((grade) => {
-	 return (
-               <tr key={ grade.id }>
-               <td>{ grade.title }</td>
-               <td>{ grade.mark }</td>
-               <td>{ grade.max_mark }</td>
-            </tr>
-         )
+   state = { courses: [] }
+         
+   componentDidMount() {
+      var instructor_id = "5e757ed4006b4a2ec4073d26"
+      axios.get('http://localhost:3000/user/'.concat(instructor_id)).then(res => {
+         var class_list = res.data.classes;  
+         var courses = [];      
+         var promises = [];
+         for(var i = 0; i < class_list.length; i++){
+            promises.push(
+               axios.get('http://localhost:3000/classroom/'.concat(class_list[i])).then(res => {
+                  courses.push({ course_name: res.data.name, course_code: res.data.course_code, grades: res.data.marks});
+               })
+            )
+         }
+         Promise.all(promises).then(() => this.setState({ courses: courses }))  
       })
    }
- 
+   
+  renderTable() {
+     return this.state.courses.map((course) => {
+         return course.grades.map((grade) => {
+            return (  
+               <tr>
+                  <td>{ course.course_code }</td>   
+                  <td>{ course.course_name }</td> 
+                  <td>{ grade.student_id }</td>   
+                  <td>{ grade.student_name }</td>   
+                  <td>{ grade.title }</td>
+                  <td>{ grade.mark }</td>
+                  <td>{ grade.max_mark }</td>
+               </tr> 
+            )
+         })
+     })
+   }
 
    renderTableHeader() {
       let header = Object.keys(this.state.students[0])
@@ -28,45 +49,31 @@ class StudentStats extends React.Component {
       })
    }
 
-
    render() {
       return (
          <div>
 				<Navbar isLogged={true}/>
-      <div className="container">
-	    <div class = "center">
-	    
-	    <div class = "left">
-            <h3 id='courseName' align="left"> { this.state.courseName } </h3>
-	    <h4 id='courseCode' align="left"> { this.state.courseCode } </h4>
-	    </div>
-
-	    <div class = "right">
-            <h3 id='studentName' align="right"> { this.state.studentName } </h3>
-	    <h4 id='StudentID' align="right"> { this.state.studentId } </h4>
-	    </div>
-
-	    <div class = "temp">
-	    <table id='students'>
-               
-	       <thead>
-	          
-	          <tr> 
-	      	     <th> Assesment </th>
-	      	     <th> Grade </th>
-	      	     <th> Max Grade </th>
-	          </tr>
-                  
-	       </thead>
-	       
-	       <tbody> { this.renderTable() } </tbody>
-            
-	    </table>
-	    </div>
-
-	    </div>
-       </div>
-        </div>
+            <div className="container">
+	            <div class = "center">
+	               <div class = "temp">
+	                  <table id='students'>            
+	                     <thead>
+	                        <tr> 
+                              <th> Course Code </th>
+                              <th> Course Name </th>
+                              <th> Student ID </th>
+                              <th> Student Name </th>
+	      	                  <th> Assesment </th>
+	      	                  <th> Grade </th>
+	      	                  <th> Max Grade </th>
+	                        </tr>                 
+	                     </thead>
+	                     <tbody> { this.renderTable() } </tbody>          
+	                  </table>
+	               </div>
+	            </div>
+            </div>
+         </div>
       )
    } 
 
