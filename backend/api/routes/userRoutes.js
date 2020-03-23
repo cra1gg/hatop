@@ -157,5 +157,36 @@ router.post('/login', (req, res) => {
 
 })
 
+router.post('/enrolclass', (req, res) => {
+    console.log(req.body);
+    var username = req.body.username;
+    var value = req.body.value;
+
+	var result = {};
+	var userInfo = {'Username': username, 'Value': value};
+    console.log(userInfo);
+	for(info in userInfo) {
+		if(userInfo[info] == null) {
+			res.status(400);
+			result["error"] = `Error: ${info} is not defined.`;
+			res.json(result);
+			return;
+		}
+	}
+    
+    User.updateOne({username: username}, {$push: {classes: value}})
+    .then(result => {
+        res.status(201).json({
+            success: `Updated classes of user ${req.body.username} successfully.`
+        });
+    })
+    .catch(err => {
+        res.status(400)
+    });
+})
+
+router.get('/enrolclass', (req, res) => {
+
+})
 
 module.exports = router;

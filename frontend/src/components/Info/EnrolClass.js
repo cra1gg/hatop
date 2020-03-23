@@ -4,6 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Navbar from '../Navigation/Navbar';
+import axios from "axios";
 
 
 class EnrolClass extends React.Component {
@@ -22,6 +23,23 @@ class EnrolClass extends React.Component {
    handleSubmit(event) {
       alert('course ID: ' + this.state.value + ' was submitted!');
       event.preventDefault();
+      const userCreds = {
+         username: "asdf",
+         value: this.state.value
+		}
+		axios.post(`http://localhost:3000/user/enrolclass`, userCreds)
+			.then(res => {
+				this.setState({
+					success: res.data.success,
+					error: ""	
+				})
+
+			}, (error) => {
+				this.setState({
+					error: error.response.data.error,
+					success: ""
+				})
+			});
    }
 
    
