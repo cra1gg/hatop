@@ -7,7 +7,7 @@ var User = require('../models/schemas/userSchema');
 
 router.get('/:user_id', (req, res) => {
     const id = req.params.user_id;
-    User.findById(id)
+    User.findOne({ username: id})
         .exec()
         .then(doc => {
             if (doc) {

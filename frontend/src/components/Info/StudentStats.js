@@ -8,7 +8,7 @@ class StudentStats extends React.Component {
    state = { courses: [] }
          
    componentDidMount() {
-      var instructor_id = "5e757ed4006b4a2ec4073d26"
+      var instructor_id = "davinder69"
       axios.get('http://localhost:3000/user/'.concat(instructor_id)).then(res => {
          var class_list = res.data.classes;  
          var courses = [];      

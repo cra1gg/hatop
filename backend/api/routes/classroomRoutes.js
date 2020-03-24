@@ -34,7 +34,7 @@ router.put("/", (req, res) => {
 });
 router.get("/:classroom_id", (req, res) => {
     const id = req.params.classroom_id;
-    Classroom.findById(id)
+    Classroom.findOne({course_code: id})
         .exec()
         .then(doc => {
             if (doc) {
