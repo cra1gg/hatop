@@ -1,18 +1,25 @@
 import React from "react"
 import DisplayClasses from "./DisplayClasses"
+import Navbar from '../../components/Navigation/Navbar';
+import axios from "axios";
 
 class ManageClasses extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-            classes: [
-                {id: 1, courseCode: "CSC301", desc: "Intro. To Software Engineering"},
-                {id: 2, courseCode: "CSC309", desc: "Intro To Web Development"},
-				{id: 3, courseCode: "CSC343", desc: "Intro. To DB. (My Favorite Course ;))"},
-				{id: 4, courseCode: "CSC363", desc: "P=NP stuff"},
-                {id: 5, courseCode: "CSC358", desc: "3 courses in 1 course"},
-            ]
-        }
+
+	state = { classes: [] };
+
+	componentDidMount() {
+		var username = "davinder69";
+		axios.get(`http://localhost:3000/user/`.concat(username)).then(res => {
+			var classes = res.data.classes;
+			var courses = [];
+			var promises = [];
+			for(var i = 0; i < classes.length; i++) {
+				promises.push(axios.get(`http://localhost:3000/classroom/`.concat(classes[i])).then(res => {
+					courses.push({ desc: res.data.name, courseCode: res.data.course_code});
+				}))
+			}
+			Promise.all(promises).then(() => this.setState({ classes: courses }));
+		})
 	}
 
 	render() {
