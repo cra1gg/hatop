@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Quiz = require("../models/schemas/quizSchema")
 
-
 //function handle_GET(req, res, next) {
 
 //}
@@ -30,3 +29,25 @@ function handle_PUT(req, res, next) {
         });
 };
 
+
+SENT_FROM_CLIENT = "sent from client";
+
+function handle_start_quiz(req, res, next) {
+    peopleCount = 1
+	socket.join(roomId);
+
+    io.on("connection", socket => {
+        peopleCount += 1;
+        // maybe use quizid instead
+        var roomId = generateUniqueId("room", ROOM_ID_LENGTH, totalSocketIORooms);
+
+
+        //
+        socket.on(SENT_FROM_CLIENT, (data, id) => {
+            console.log(data.text);
+        });
+    
+        
+    
+    })
+}

@@ -6,13 +6,16 @@ const mongoose = require("mongoose");
 const classroom = require('./api/models/classroom');
 const classroomRoutes = require("./api/routes/classroomRoutes");
 const userRoutes = require("./api/routes/userRoutes");
-const cors = require('cors')
+const quizRoutes = require("./api/routes/quizRoutes");
+const cors = require('cors');
+const port = process.env.PORT || 3000
+//let io = require('socket.io')(server);
+
 
 
 var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
 									"@hatop-5qek7.mongodb.net/users?retryWrites=true&w=majority"
 // const accountRoutes = require("./api/routes/accountRoutes");
-const quizRoutes = require("./api/routes/quizRoutes");
 
 var mongoose_options = { useNewUrlParser: true, useUnifiedTopology: true};								
 mongoose.connect(mongoose_uri, mongoose_options)
@@ -45,5 +48,25 @@ app.use("/classroom", classroomRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/user", userRoutes);
 
+
+
+/*io.on("connection", socket => {
+
+	// maybe use quizid instead
+	var roomId = generateUniqueId("room", ROOM_ID_LENGTH, totalSocketIORooms);
+
+});*/
+
+
+/*var server = app.listen(port, () => {
+    console.log(`App listening on port ${port}!`);
+});
+
+let io = require('socket.io')(server);
+
+
+module.exports.getIO = function(){
+	return io;
+}*/
 
 module.exports = app;
