@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Navbar from '../../components/Navigation/Navbar';
+import { Redirect } from 'react-router-dom'
 
 
 class SignUp extends React.Component {
@@ -12,7 +13,8 @@ class SignUp extends React.Component {
 		password: "",
 		user_type: "",
 		error: "",
-		success: ""
+		success: "",
+		redirect: false
 	}
 
 
@@ -39,7 +41,8 @@ class SignUp extends React.Component {
 			.then(res => {
 				this.setState({
 					success: res.data.success,
-					error: ""	
+					error: "",
+					redirect: true
 				})
 
 			}, (error) => {
@@ -107,6 +110,7 @@ class SignUp extends React.Component {
 							Sign Up
 						</button> 
 					</div>
+					{this.state.redirect === true ? <Redirect to='/signin' /> : null}
 				</form>
 			</div>
 			</div>

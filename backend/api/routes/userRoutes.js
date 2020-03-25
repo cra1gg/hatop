@@ -2,6 +2,8 @@ var express     = require('express');
 var router      = express.Router();
 var bcrypt      = require('bcryptjs')
 var mongoose    = require("mongoose");
+var jwt 		= require('jsonwebtoken');
+
 
 var User = require('../models/schemas/userSchema');
 
@@ -113,9 +115,9 @@ router.post('/signup', (req, res) => {
         })    
 })
 
-
 router.post('/login', (req, res) => {
     console.log(req.body);
+
 	var username = req.body.username;
 	var password = req.body.password;
 
@@ -137,15 +139,19 @@ router.post('/login', (req, res) => {
 		}
 	}
     
-    
     User.find({ username: username})
         .exec()                     // execute query
         .then(doc => {
             if(doc.length) {
                 if (bcrypt.compareSync(password, doc[0].password)) {
                     console.log(doc[0].password);
+                    let user = {name: username};
+
+                    let accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+                    console.log(accessToken);
                     res.status(200).json({
-                        success: "Logged in successfully."
+                        success: "Logged in successfully.",
+                        accessToken: accessToken
                     })
                 } else {
                     res.status(409).json({
@@ -200,5 +206,32 @@ router.post('/enrolclass', (req, res) => {
         res.status(400)
     });
 })
+
+
+
+router.get('/test/g', isValidToken, (req, res) => {
+    res.json({"hello": "you have access"});
+})
+
+
+/**
+ * Let the user go through the route iff the presented token is valid.
+ */
+function isValidToken(req, res, next) {
+	let authHeader = req.headers['authorization'];
+	let token = authHeader && authHeader.split(' ')[1]; // Format.... BEARER <Token>
+	if (token == null) return res.sendStatus(401);
+
+	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+		if(err) return res.sendStatus(403);
+		req.user = user;
+		console.log(user);
+		next();
+	})
+}
+
+
+
+
 
 module.exports = router;
