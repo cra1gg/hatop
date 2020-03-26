@@ -44,6 +44,7 @@ router.get("/start_live_quiz/:class_id/:quiz_id", async (req, res, next) => {
         .exec()
         .then(doc => {
             questionList = doc ? doc : [];
+            return questionList;
         })
         .catch(err => {
             console.log(err);
@@ -67,7 +68,7 @@ router.get("/start_live_quiz/:class_id/:quiz_id", async (req, res, next) => {
     updateStudentMarks
 
     currQuestionIdx = 0;
-    var currQuestionIds = await questionList[currQuestionIdx];
+    var currQuestionIds = await getQuiz(); //questionList[currQuestionIdx];
     currQuizQuestion = await getQuestion(currQuestionIds[currQuestionIds]);
 
 
@@ -112,14 +113,18 @@ router.get("/start_live_quiz/:class_id/:quiz_id", async (req, res, next) => {
         socket.on(NEXT_QUESTION, (data, id) => {
             console.log(data.text);
             currQuestionIdx++;
-            for (studentId in io.sockets.adapter.rooms[req.quiz_id].peopleList.studentList) {
-                
+            for (student in io.sockets.adapter.rooms[req.quiz_id].peopleList.studentList) {
+                studentList = io.sockets.adapter.rooms[req.quiz_id].peopleList.studentList
+                console.log("studentID: " + student["studentId"] + "    score: " + student["correctCount"])
             } 
         });
 
         // display score i guess? maybe store in db
         socket.on(END_QUIZ, (data, id) => {
-
+            for (student in io.sockets.adapter.rooms[req.quiz_id].peopleList.studentList) {
+                studentList = io.sockets.adapter.rooms[req.quiz_id].peopleList.studentList
+                console.log("studentID: " + student["studentId"] + "    score: " + student["correctCount"])
+            }
         })
 
         socket.on("disconnect", () => {
