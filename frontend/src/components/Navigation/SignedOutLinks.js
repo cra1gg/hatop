@@ -11,9 +11,7 @@ function SignedOutLinks(props) {
             <li><NavLink to="">Explore</NavLink></li>
             <li><NavLink to="/signin">Log In</NavLink></li>
             <li><NavLink to="/signup">Register</NavLink></li>
-
         </ul>
-        
     )
 
 }

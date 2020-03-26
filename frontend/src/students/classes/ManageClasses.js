@@ -5,10 +5,17 @@ import axios from "axios";
 
 class ManageClasses extends React.Component {
 
-	state = { classes: [] };
+	state = { classes: [], error: ""};
 
 	componentDidMount() {
-		var username = "davinder69";
+		if (!localStorage.username) { // username hasn't been set, so can't display classses.
+			this.setState({
+				error: "You must be logged in to view your classes."
+			})
+			return;
+		}
+
+		var username = localStorage.username;
 		axios.get(`http://localhost:3000/user/`.concat(username)).then(res => {
 			var classes = res.data.classes;
 			var courses = [];
