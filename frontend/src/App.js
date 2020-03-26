@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import SignUp from "./components/Auth/SignUp"
 import SignIn from "./components/Auth/SignIn"
+import SignOut from "./components/Auth/SignOut"
 import CreateClass from "./teachers/classes/CreateClass"
 import ManageClasses from "./teachers/classes/ManageClasses"
 import ViewClasses from "./students/classes/ManageClasses"
@@ -22,6 +23,7 @@ class App extends React.Component {
                   <Switch>
                       <Route path="/signup" component={SignUp} />
                       <Route path="/signin" component={SignIn} />
+                      <Route path="/signOut" component={SignOut} />
                       <Route path="/createClass" component={CreateClass} />
                       <Route path="/manageClasses" component={ManageClasses} />
 	              <Route path="/studentstats" component={StudentStats}/>

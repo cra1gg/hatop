@@ -8,15 +8,18 @@ class ManageClasses extends React.Component {
 	state = { classes: [], error: ""};
 
 	componentDidMount() {
-		if (!localStorage.username) { // username hasn't been set, so can't display classses.
-			this.setState({
-				error: "You must be logged in to view your classes."
-			})
-			return;
-		}
 
-		var username = localStorage.username;
-		axios.get(`http://localhost:3000/user/`.concat(username)).then(res => {
+		/**
+		 * Need to delay the time login button is clicked and the localstorage is set, so 
+		 * we must wait a certain amount of time before requesting the classes from backend.
+		 */
+		var delayInMilliseconds = 100; //1 second
+
+		setTimeout(() => {
+		  
+			console.log("YEET: " + localStorage.username);
+			var username = localStorage.username;
+			axios.get(`http://localhost:3000/user/`.concat(username)).then(res => {
 			var classes = res.data.classes;
 			var courses = [];
 			var promises = [];
@@ -27,6 +30,9 @@ class ManageClasses extends React.Component {
 			}
 			Promise.all(promises).then(() => this.setState({ classes: courses }));
 		})
+
+		}, delayInMilliseconds);
+
 	}
 
 	render() {

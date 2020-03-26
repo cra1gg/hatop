@@ -10,7 +10,7 @@ function SignedInLinks(props) {
             <li><NavLink to="/viewClasses">My Classes</NavLink></li>
             <li><NavLink to="/studentStats">Grades</NavLink></li>
             <li><NavLink to="/enrolClass">Enrol in a Class</NavLink></li>
-            <li><NavLink onClick = {localStorage.clear()} to='/'>Sign Out</NavLink></li>
+            <li><NavLink to='/signOut'>Sign Out</NavLink></li>
         </ul>
         
     )

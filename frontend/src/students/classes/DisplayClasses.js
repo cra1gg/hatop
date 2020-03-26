@@ -26,7 +26,7 @@ const ClassList = ({classes}) => {
       )
     })
   ) : (
-    <p className="center">You have no classes to manage.</p>
+    <p className="center">You aren't enrolled in any classes.</p>
   );
 
   return (
