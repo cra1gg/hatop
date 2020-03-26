@@ -8,7 +8,9 @@ import ViewClasses from "./students/classes/ManageClasses"
 import Home from "./components/Home/Home"
 import StudentStats from "./components/Info/StudentStats"
 import EnrolClass from "./components/Info/EnrolClass"
-import QuizBuilder from "./components/QuizBuilder"
+import QuizBuilder from "./components/Quiz/QuizBuilder/QuizBuilder";
+import QuizView from "./components/Quiz/QuizTaker/QuizView";
+import QuizTaker from "./components/Quiz/QuizTaker/QuizTaker";
 import './App.css';
 import Navbar from './components/Navigation/Navbar';
 
@@ -28,6 +30,8 @@ class App extends React.Component {
                       <Route path="/viewclasses" component={ViewClasses}/> 
                       <Route path="/enrolclass" component={EnrolClass}/>
 	              <Route path="/quizbuilder" component={QuizBuilder}/>
+	              <Route exact path="/quizzes" component={QuizView}/>
+	              <Route exact path="/quizzes/:quiz_id" component={QuizTaker}/>
 	              <Route path="" component={Home}/>
                   </Switch>
               </div>

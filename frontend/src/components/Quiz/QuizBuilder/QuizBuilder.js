@@ -67,7 +67,7 @@ class QuizBuilder extends Component {
 			    <div className="col s2"> </div>
 
 			    <div className="post card col s6 center">
-			      <input className="card-content" id="name" type="text" placeholder="Quiz name..."/>
+			      <input className="card-content" id="name" type="text" placeholder="Quiz name..." required/>
 			    </div>
  
 			   </div>

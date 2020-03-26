@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 class MultipleChoiceAdder extends Component {
 
-	state = { lastid: 0, answer: "", options : [], newOption: " "}
+	state = { lastid: 0, answer: "", options : [], newOption: ""}
 
 	addOption = (e) => {
 
@@ -14,7 +14,6 @@ class MultipleChoiceAdder extends Component {
 		const lastid = this.state.lastid + 1;
 		const option = {id: lastid, value: this.state.newOption};
 		const options = [...this.state.options, option];
-
 
 		this.setState({
 			options,
@@ -63,7 +62,7 @@ class MultipleChoiceAdder extends Component {
 			 <RadioGroup defaultValue={null} name="customized-radios">
 			  { options } 
 			 </RadioGroup>			 
-			 <input id="newOption" type="text" onChange={this.handleChange}/>
+			 <input id="newOption" type="text" onChange={this.handleChange} value={this.state.newOption}/>
 			 <IconButton color="default" size="small" onClick={this.addOption}> Add option... </IconButton>	
 			</FormControl>
 			</div>)

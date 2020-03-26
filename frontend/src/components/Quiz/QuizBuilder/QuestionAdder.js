@@ -13,23 +13,14 @@ class QuestionAdder extends Component {
 	}
 	
 	handleAdd = (e) => {
-
 		e.preventDefault();	
-		
-		if ((this.state.content === '') || (this.state.answer === '') || (this.state.type === '') || (this.state.choices.length = 0)) {
-
-			alert("MISSING INFORMATION");
-
-		} else {
-			this.props.addQuestion(this.state);
+		this.props.addQuestion(this.state);
 			this.setState({
 				content: '',
 				answer: '',
 				type: '',
 				choices : []
-			});
-		}
-	
+			});	
 	}
 
 	render() {
@@ -68,7 +59,7 @@ class QuestionAdder extends Component {
 			 <div className="row">
 			  
 			  <div className="col s8"> 
-			   <input id="content" type="text" placeholder="Question" onChange={this.handleChange} value={this.state.content}/>
+			   <input id="content" type="text" placeholder="Question" onChange={this.handleChange} value={this.state.content} required/>
 		  	  </div>
 
 		          <div className="center col s4">
