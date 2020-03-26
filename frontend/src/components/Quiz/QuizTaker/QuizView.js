@@ -5,13 +5,7 @@ import { Link } from 'react-router-dom';
 
 class QuizView extends Component {
 
-	state = { quizzes : [{id: 0, name: "INSERT QUIZ NAME", amt: 5, date: "2017-09-09", time: 10}, 
-		{id:1, name: "INSERT QUIZ NAME", amt: 5, date: "2020-12-29", time: 10}, 
-		{id:2, name: "INSERT QUIZ NAME", amt: 17, date: "2021-01-01", time: 10},
-		{id:3, name: "INSERT QUIZ NAME", amt: 17, date: "2021-01-01", time: 10},
-		{id:4, name: "INSERT QUIZ NAME", amt: 17, date: "2021-01-01", time: 10},
-		{id:5, name: "INSERT QUIZ NAME", amt: 17, date: "2021-01-01", time: 10},
-		{id:6, name: "INSERT QUIZ NAME", amt: 17, date: "2021-01-01", time: 10}]}
+	state = {quizzes : [{id: 0, name: "CSC301 - Quiz 1 - Enterprise Design Patterns", amt: 4, date: "2017-09-09", time: 10}]} 
 
 	render() {
 
@@ -22,7 +16,7 @@ class QuizView extends Component {
 				    <Link to={"/quizzes/" + quiz.id}>
 				     <span className="card-title"> {quiz.name} </span>
 				    </Link>
-				    <p> {"Amount of Questions: " + quiz.amt + " | " + "Due Date: " + quiz.date + " | " + "Total Duration: " + quiz.time + " minutes"} </p>
+				    <p> {"Amount of Questions:   " + quiz.amt + "   |   " + "Due Date:   " + quiz.date + "   |   " + "Total Duration:   " + quiz.time + "   minutes"} </p>
 				  </div>
 				</div>
 			) 

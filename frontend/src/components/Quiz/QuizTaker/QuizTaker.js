@@ -4,7 +4,7 @@ import { Radio, FormControl, FormLabel, FormControlLabel, RadioGroup } from '@ma
 
 class QuizTaker extends Component {
 
-	state = {quiz_id: 34343, quiz_name: "THE FIRST QUIZ", questions: [{id: 0, content: "THIS IS THE QUESTION", answer: "ANSWER?", choices: ["a", "b", "c"]}]}
+	state = {quiz_id: 0, quiz_name: "CSC301 - Quiz 1 - Enterprise Design Patterns", questions: [{id: 0, content: "Dependency Injection aims to separate the responsibility of resolving object dependency from its behaviour.", answer: "True", choices: ["True", "False"]}, {id: 1, content: "Interface segregation suggests that clients should be forced to depend on methods even if they do not use them.", answer: "False", choices:[" True", "False"]}, {content: "We would like to use client code which is currently incompatible with our application code. Which design pattern can fix this issue?", answer:"Adapter", choices: ["Adapter", "Factory", "Command"]}, {content: "Letting a class explicitly create an instance of another class can be solved by ...", answer: "Dependency Injection", choices: ["Dependency Injection Pattern", "Liskov Substitution Principle", "Interface Segregation Princliple"]}]}
 
 	handleChange = (e) => {
 
@@ -29,13 +29,16 @@ class QuizTaker extends Component {
 			
 			
 		return (
-				<div className="post card">
-				   
-				   <h4 className="grey-text"> {question.content} </h4>
+
+			<div className="container">
+			
+			        <h6 className="grey-text"> {question.content} </h6> 
+
+				<div className="post card">	   
 				
 				   <FormControl component="fieldset">
 				   
-				    <FormLabel component="legend"> Options </FormLabel>
+				    <FormLabel component="legend"> </FormLabel>
 
 				    <RadioGroup defaultValue={null} name="customized-radios">
 			              {choices}
@@ -44,6 +47,7 @@ class QuizTaker extends Component {
 				   </FormControl>
 
 				</div>
+			</div>
 			)
 		});
 
@@ -55,10 +59,14 @@ class QuizTaker extends Component {
 
 			   <div className="container">
 			    
-			     <h2 className="post card"> {this.state.quiz_name} </h2>
+			     <h3 className="post card"> {this.state.quiz_name} </h3>
 
 			     {questionList}
+	
+			   </div>
 
+			   <div className="center container">
+			     <button className="btn-large"> Submit </button>
 			   </div>
 
 			</div>
