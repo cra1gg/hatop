@@ -3,6 +3,9 @@ import { IconButton } from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import Questions from './Questions';
 import QuestionAdder from './QuestionAdder';
+import Navbar from './../../Navigation/Navbar'
+
+
 
 class QuizBuilder extends Component {
 
@@ -42,21 +45,29 @@ class QuizBuilder extends Component {
 		return (
 			<div>	
 			
+			<Navbar isLogged={false}/>
+
 			<div className="container">
-			<h3> Quiz Builder </h3>
+			 <div className="collection-item">
+			    <h4> Quiz Builder </h4>
+			 </div>
+			</div>
+
+
+			<div className="container">
 			 
 			 <div className="collection">
 			  <div className="collection-item">
 			   <div className="row">
-			    
-			    <div className="col s3">
-			      <IconButton aria-label="add an alarm" color="default"> <p> Create Quiz <PostAddIcon/> </p> </IconButton>
+			
+			    <div className="container col s4">
+			      <button className="btn-medium waves-effect" color="default"> Create Quiz <PostAddIcon/> </button>
 			    </div>
 
-			    <div className="col s6"> </div>
+			    <div className="col s2"> </div>
 
-			    <div className="col s3">
-			      <input id="name" type="text" placeholder="Quiz name..."/>
+			    <div className="post card col s6 center">
+			      <input className="card-content" id="name" type="text" placeholder="Quiz name..." required/>
 			    </div>
  
 			   </div>
@@ -64,6 +75,7 @@ class QuizBuilder extends Component {
 			  </div>
 			 </div>
 			  
+			 <h5> Add Questions </h5>
 			 <div className="collection">
 			   
 			   <QuestionAdder addQuestion={this.addQuestion}/>
@@ -71,7 +83,7 @@ class QuizBuilder extends Component {
 			 </div>
 			
 
-			<h6> Questions </h6>
+			<h5> Questions </h5>
 			<div className="collection">
 
 			   <Questions questions={this.state.questions} removeQuestion={this.removeQuestion}/>

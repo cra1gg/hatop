@@ -4,7 +4,7 @@ import MultipleChoiceAdder from './MultipleChoiceAdder';
 
 class QuestionAdder extends Component {
 
-	state = {content: '', answer: '', type: '', choices : [{id: 0, value: 'a'}, {id: 1, value: 'b'}]}
+	state = {content: '', answer: '', type: '', choices : []}
 
 	handleChange = (e) => {
 		this.setState({
@@ -13,12 +13,14 @@ class QuestionAdder extends Component {
 	}
 	
 	handleAdd = (e) => {
-		e.preventDefault();
+		e.preventDefault();	
 		this.props.addQuestion(this.state);
-		this.setState({
-			content: '',
-			answer: ''
-		});
+			this.setState({
+				content: '',
+				answer: '',
+				type: '',
+				choices : []
+			});	
 	}
 
 	render() {
@@ -27,13 +29,13 @@ class QuestionAdder extends Component {
 
 
 		if (typeval) {
-			responses = (<div> </div>)
+			responses = (null)
 		} else {
 			responses = this.state.type === "True/False" ? 
 			( <FormControl component="fieldset">
 			     <FormLabel component="legend"> Options </FormLabel>
 			     <RadioGroup defaultValue="" name="customized-radios">
-				    <FormControlLabel value="True" control = {<Radio id="answer" onChange={this.handleChange} />} label="True" />
+				    <FormControlLabel value="True" control = {<Radio id="answer" onChange={this.handleChange}/>} label="True" />
 				    <FormControlLabel value="False" control = {<Radio id="answer" onChange={this.handleChange}/>} label="False" />
 		             </RadioGroup>
 		          </FormControl>
@@ -57,11 +59,11 @@ class QuestionAdder extends Component {
 			 <div className="row">
 			  
 			  <div className="col s8"> 
-			   <input id="content" type="text" placeholder="Question" onChange={this.handleChange} value={this.state.content}/>
+			   <input id="content" type="text" placeholder="Question" onChange={this.handleChange} value={this.state.content} required/>
 		  	  </div>
-			  
+
 		          <div className="center col s4">
-			   <button type="submit" className="btn waves-effect waves-light"> Add Question </button>
+			   <button type="submit" className="btn-large waves-effect waves-light"> Add Question </button>
 			  </div>
 
 			 </div>
@@ -83,7 +85,9 @@ class QuestionAdder extends Component {
 			</div>
 			  
 			 <div className="col s4">
-			  <h5 className="center"> Answer { answers } </h5>
+			  <div className="post card">
+			   <u> <h5 className="center"> Answer </h5> </u> <p className="center"> { answers } </p>
+			  </div>
 			 </div>
 
 			 </div>
