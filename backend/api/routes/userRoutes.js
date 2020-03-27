@@ -209,9 +209,9 @@ router.post('/enrolclass', (req, res) => {
 
 
 
-router.get('/test/g', isValidToken, (req, res) => {
-    res.json({"hello": "you have access"});
-})
+// router.get('/test/g', isValidToken, (req, res) => {
+//     res.json({"hello": "you have access"});
+// })
 
 
 /**

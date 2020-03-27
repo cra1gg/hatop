@@ -6,8 +6,7 @@ const quizQuestionSchema = mongoose.Schema({
     quizId: { type: String, required: true },
     question: { type: String, required: true },
     answerOptions: { type: Array, required: true },
-    correctAnswers: { type: Array, required: true },
-	dateCreated: { type: Date, required: true },
+    correctAnswer: { type: String, required: true },
 });
 
 

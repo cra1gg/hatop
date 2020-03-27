@@ -9,7 +9,6 @@ const quizSchema = mongoose.Schema({
         user_id: { type: String},
         student_answer: { type: String}
      }],
-	dateCreated: { type: Date, required: true },
 });
 
 
