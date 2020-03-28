@@ -139,19 +139,21 @@ router.post('/login', (req, res) => {
 		}
 	}
     
-    User.find({ username: username})
+    User.findOne({ username: username})
         .exec()                     // execute query
         .then(doc => {
-            if(doc.length) {
-                if (bcrypt.compareSync(password, doc[0].password)) {
-                    console.log(doc[0].password);
+            if(doc) {
+                if (bcrypt.compareSync(password, doc.password)) {
+                    console.log(doc.password);
                     let user = {name: username};
 
                     let accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
                     console.log(accessToken);
+                    console.log(doc);
                     res.status(200).json({
                         success: "Logged in successfully.",
-                        accessToken: accessToken
+                        accessToken: accessToken,
+                        user_info: doc
                     })
                 } else {
                     res.status(409).json({

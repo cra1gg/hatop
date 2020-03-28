@@ -35,9 +35,7 @@ class SignIn extends React.Component {
 				})
 				localStorage.token = res.data.accessToken;
 				localStorage.username = this.state.userName;
-				console.log(localStorage.token);
-				console.log(localStorage.username);
-
+				localStorage.user_type = res.data.user_info.user_type; // Doesn't change so we can use this throughout the session.
 
 			}, (error) => {
 				this.setState({

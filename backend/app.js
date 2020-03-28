@@ -3,7 +3,6 @@ const app 				= express();
 const morgan 			= require("morgan"); //for logging
 const bodyParser 		= require("body-parser");
 const mongoose 			= require("mongoose");
-const classroom 		= require('./api/models/classroom');
 const classroomRoutes 	= require("./api/routes/classroomRoutes");
 const userRoutes 		= require("./api/routes/userRoutes");
 const cors 				= require('cors');
