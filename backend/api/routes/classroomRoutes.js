@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router()
-const ClassroomModel = require("../controllers/classroomController");
 const Classroom = require("../models/schemas/classroomSchema");
 
 //var classroomModel = new ClassroomModel();

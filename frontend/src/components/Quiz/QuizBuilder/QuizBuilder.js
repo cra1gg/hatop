@@ -4,6 +4,7 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import Questions from './Questions';
 import QuestionAdder from './QuestionAdder';
 import Navbar from './../../Navigation/Navbar'
+import axios from "axios"
 
 
 
@@ -15,7 +16,7 @@ class QuizBuilder extends Component {
 	
 
 	// 
-	state = { lastid: 0, name: '', questions: [] }
+	state = { lastid: 0, name: '', questions: [], error: '', success: '' }
 
 	addQuestion = (question) => {
 
@@ -41,6 +42,29 @@ class QuizBuilder extends Component {
 		})
 	}
 
+	handleSubmit = (event) => {
+		event.preventDefault();
+		const userCreds = {
+			courseCode: "CSC411", // TODO: add dynamic course code dependent on a dropdown menu to select courses from in ui.
+			name: this.state.name,
+			questions: this.state.questions,
+		}
+		axios.post(`http://localhost:3000/quiz`, userCreds)
+			.then(res => {
+				this.setState({
+					success: res.data.success,
+					error: ""
+				})
+			}, () => {
+				this.setState({
+					error: "Couldn't add the quiz.",
+					success: ""
+				})
+			});
+
+	}
+
+
 	render() {	
 		return (
 			<div>	
@@ -61,7 +85,7 @@ class QuizBuilder extends Component {
 			   <div className="row">
 			
 			    <div className="container col s4">
-			      <button className="btn-medium waves-effect" color="default"> Create Quiz <PostAddIcon/> </button>
+			      <button className="btn-medium waves-effect" color="default" onClick={this.handleSubmit}> Create Quiz <PostAddIcon/> </button>
 			    </div>
 
 			    <div className="col s2"> </div>
