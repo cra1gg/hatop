@@ -17,7 +17,6 @@ class ManageClasses extends React.Component {
 
 		setTimeout(() => {
 		  
-			console.log("YEET: " + localStorage.username);
 			var username = localStorage.username;
 			axios.get(`http://localhost:3000/user/`.concat(username)).then(res => {
 			var classes = res.data.classes;
