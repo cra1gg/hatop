@@ -205,7 +205,7 @@ router.post('/enrolclass', (req, res) => {
         });
     })
     .catch(err => {
-        res.status(400)
+        res.status(400).json({error: "Error: Couldn't add you to class " + value}) 
     });
 })
 

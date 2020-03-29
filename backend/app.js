@@ -10,7 +10,7 @@ const cors 				= require('cors');
 
 
 var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MONGO_ATLAS_PW) + 
-									"@hatop-5qek7.mongodb.net/users?retryWrites=true&w=majority"
+									"@hatop-5qek7.mongodb.net/hatop?retryWrites=true&w=majority"
 // const accountRoutes = require("./api/routes/accountRoutes");
 const quizRoutes = require("./api/routes/quizRoutes");
 
