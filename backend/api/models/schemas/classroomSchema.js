@@ -5,14 +5,13 @@ const classSchema = mongoose.Schema({
 	course_code: { type: String, required: true, unique: true },
 	name: { type: String, required: true },
     instructor_ids: { type: Array, required: true },
-    student_ids: { type: Array, required: true },
 	quizlets: { type: Array },
 	marks: [{
-		student_id: { type: String, required: true, unique: true },				// Aggregate over the student_id's to find all the tests the user has taken.
-		student_name: { type: String, required: true },							
-		title: { type: String, required: true },
-		mark: { type: Number, required: true },
-		max_mark: { type: Number, required: true }
+		student_id: { type: String, required: true},				// Aggregate over the student_id's to find all the tests the user has taken.
+		quizzes: [{
+			quiz_id: {type: String, required: true},
+			mark: {type: Number, required: true}
+		}]
 	}]
 });
 

@@ -12,7 +12,6 @@ router.put("/", (req, res) => {
         course_code: req.body.courseCode,
         name: req.body.name,
         instructor_ids: req.body.instructor_ids,
-        student_ids: req.body.student_ids,
         quizlets: req.body.quizlets,
         marks: req.body.marks
     });
