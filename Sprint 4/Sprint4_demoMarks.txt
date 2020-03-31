@@ -1,0 +1,10 @@
+attendance: 1/2, 2 members missing
+
+features: courses view (from the backend)/ token validation (to make sure the same user is using the acount)/ quizbuilder (building a quiz)/ 
+can take a quiz as well (as a student)/ grades page
+
+JIRA: user stories present, some left but should be finished soon
+
+features: 8/8
+
+total: 9/10

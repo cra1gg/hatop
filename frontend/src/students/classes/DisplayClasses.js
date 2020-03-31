@@ -13,7 +13,7 @@ const ClassList = ({classes}) => {
                     <div className="card-content white-text">
                         <span className="card-title">{cl.courseCode}</span>
 
-                        <span>{cl.desc}  *insert description about the course* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta temporibus suscipit, ipsam pariatur esse numquam nobis expedita odio, dolores, accusamus doloremque exercitationem ut eum laborum officia maxime labore similique distinctio?</span>
+                        <span>{cl.desc}</span>
                     </div>
                     <div className="card-action">
                     {/* Each route makes a GET request for the grades and quizzes given the classcode + username in the get request. */}
