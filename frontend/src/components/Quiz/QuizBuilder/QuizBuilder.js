@@ -78,7 +78,7 @@ class QuizBuilder extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		const quiz = {
-			courseCode: this.state.selectedCourse, // TODO: add dynamic course code dependent on a dropdown menu to select courses from in ui.
+			courseCode: this.state.selectedCourse,
 			name: this.state.name,
 			questions: this.state.questions,
 		}
