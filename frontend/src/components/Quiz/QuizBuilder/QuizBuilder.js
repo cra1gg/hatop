@@ -13,8 +13,6 @@ class QuizBuilder extends Component {
 	// Each question will have a 'question', 'answer' and 'type'
 	// type will be either T/F or MC (for now)
 	
-
-	// 
 	state = { lastid: 0, name: '', questions: [] }
 
 	addQuestion = (question) => {
