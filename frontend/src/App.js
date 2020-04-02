@@ -33,7 +33,7 @@ class App extends React.Component {
                       <Route path="/enrolclass" component={EnrolClass}/>
 	              <Route path="/quizbuilder" component={QuizBuilder}/>
 	              <Route exact path="/quizzes" component={QuizView}/>
-	              <Route exact path="/quizzes/:quiz_id" component={QuizTaker}/>
+	              <Route path="/quizzes/:quiz_id" component={QuizTaker}/>
 	              <Route path="" component={Home}/>
                   </Switch>
               </div>

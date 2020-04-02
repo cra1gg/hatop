@@ -69,24 +69,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 const footers = [
   {
     title: 'HaTop',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    description: [{lab: 'Team', lin: ""}, {lab: 'History', lin: ""}, {lab: 'Contact us', lin: ""}, {lab: 'Locations', lin: ""}],
   },
   {
     title: 'Features',
-    description: ['Attendance', 'Quizzes', 'Live Quizzes', 'Course Materials', 'Canvas Integration'],
+    description: [{lab: 'Quizzes', lin: "/quizzes"}, {lab: 'Courses', lin: ""}, {lab: 'Canvas Integration', lin: ""}],
   },
-  {
-    title: 'Resources',
-    description: ['Canvas API', 'Blackboard API', 'Desire2Learn API', 'UofT API'],
-  },
-  {
+  { 
     title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
+    description: [{lab: 'Privacy policy', lin: "//www.privacypolicygenerator.info/live.php?token=9K2zhpGO67D7gHskWcr9rvgVNLFkdj1j"}, {lab: 'Terms of use', lin: "//www.termsofusegenerator.net/live.php?token=L4FdyCMAkW0PJVT6pywB20viVuAf60uZ"}],
+  }
 ];
+
 
 export default function Pricing() {
   const classes = useStyles();
@@ -119,19 +117,21 @@ export default function Pricing() {
                 />
                 <CardContent>
                   <ul>
-                      <Typography component="li" variant="subtitle1" align="center" key="Swag">
-					  	- Administer quizzes in class
+                      
+	  	      <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  	Post slides, assignments, and other materials
+                      </Typography>
+
+	              <Typography component="li" variant="subtitle1" align="center" key="Swag">
+					  	Administer quizzes online and in class
                       </Typography>
 					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
-					  	- Create quizzes ahead of time
+					  	Create quizzes ahead of time
                       </Typography>
 					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
-					  	- Take attendance in class
+					  	Take attendance in class
                       </Typography>
-					  <Typography component="li" variant="subtitle1" align="center" key="Swag">
-					  	- Post slides, assignments, and other materials
-                      </Typography>
-                  </ul>
+		</ul>
                 </CardContent>
               </Card>
             </Grid>
@@ -147,16 +147,16 @@ export default function Pricing() {
                 <CardContent>
                   <ul>
 				  	  <Typography component="li" variant="subtitle1" align="center" key="idea1">
-					  	- Get good marks
+					  	Participate in online and in-class quizzes
                       </Typography>
 					  <Typography component="li" variant="subtitle1" align="center" key="idea2">
-					  	- Show that you actually showed up to class
+					  	Access course materials anytime 
                       </Typography>
 					  <Typography component="li" variant="subtitle1" align="center" key="idea3">
-					  	- bottom text
+					  	Easy access to your grades
                       </Typography>
 					  <Typography component="li" variant="subtitle1" align="center" key="idea4">
-					  	- im running out of ideas
+					  	Free subscription
                       </Typography>
                   </ul>
                 </CardContent>
@@ -175,9 +175,9 @@ export default function Pricing() {
               </Typography>
               <ul>
                 {footer.description.map(item => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="textSecondary">
-                      {item}
+                  <li key={item.lab}>
+                    <Link href={item.lin} variant="subtitle1" color="textSecondary">
+                      {item.lab}
                     </Link>
                   </li>
                 ))}
