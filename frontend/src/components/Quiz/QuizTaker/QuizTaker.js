@@ -15,7 +15,10 @@ class QuizTaker extends Component {
 			questions: [],
 			userAnswers: [],
 			success: "",
-			error: ""
+			course_name: "",
+			error: "",
+			student_name: "",
+
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,50 +46,90 @@ class QuizTaker extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(this.state);
-		this.setState({
-			success: "Submitted quiz successfully",
-			error: ""
-		})
-
-		e.preventDefault();
-
-		const answeredAllQuestions = this.state.userAnswers.length === this.state.questions.length;
-
-		if (answeredAllQuestions) {
-
-			const tot = this.state.userAnswers.filter(ans => {
-				const true_ans = this.state.questions[ans.id].answer
-				return true_ans === ans.value; 
+		if(localStorage.username == null) {
+			this.setState({
+			   error: "You must be logged in to view the stats."
 			})
+			return;
+		 }
+		 var username = localStorage.username;
 
-			const usermark = {
-				quiz_id: this.state.quiz_id,
-				courseCode: this.state.course_code,
-				total_marks: tot.length,
-				name: this.state.quiz_name
-			}
+		 axios.get('http://localhost:3000/user/' + username)
+		 .then(res => {
+			 console.log(`First name: ${res.data.first_name}, last name : ${res.data.last_name}`)
+			 this.setState({
+				 student_name: res.data.first_name + ' ' + res.data.last_name ,
+				 error: ""
+			 })
 
-			console.log(usermark);
-			axios.post('http://localhost:3000/mark/', usermark)
-				.then(res => {
-					this.setState({
-						success: res.data.success,
-						error: ""
-					})
-				}, (err) => {
-					console.log(err);
-					this.setState({
-						error: "Failed to add the mark",
-						success: ""
-					})
-				
-				});
+			 axios.get('http://localhost:3000/classroom/' + this.state.course_code)
+			 .then(res => {
+				 console.log(`First name: ${res.data.name}`)
+				 this.setState({
+					 course_name: res.data.name,
+					 error: ""
+				 })
+	
+				const answeredAllQuestions = this.state.userAnswers.length === this.state.questions.length;
 
-		} else {
-
-			this.setState({error: "All questions must be answered"})
+				if (answeredAllQuestions) {
 		
-		}
+					const tot = this.state.userAnswers.filter(ans => {
+						const true_ans = this.state.questions[ans.id].answer
+						return true_ans === ans.value; 
+					})
+		
+					const usermark = {
+						quiz_id: this.state.quiz_id,
+						courseCode: this.state.course_code,
+						mark: tot.length,
+						max_mark: this.state.questions.length,
+						title: this.state.quiz_name,
+						student_id: username,
+						name: this.state.student_name
+					}
+		
+					console.log(usermark);
+					axios.put('http://localhost:3000/quiz/submitQuiz', usermark)
+						.then(res => {
+							this.setState({
+								success: res.data.success,
+								error: ""
+							})
+						}, (err) => {
+							console.log(err);
+							this.setState({
+								error: "Failed to add the mark",
+								success: ""
+							})
+						
+						});
+		
+				} else {
+		
+					this.setState({error: "All questions must be answered"})
+				
+				}
+			}, (err) => {
+				console.log(err);
+				this.setState({
+					success: "",
+					error: "Backend error please try again."
+				})
+			});
+	 
+
+		 }, (err) => {
+			 console.log(err);
+			 this.setState({
+				 success: "",
+				 error: "Backend error please try again."
+			 })
+		 
+		 });
+
+
+		//  localhost:3000/user/:user_id
 
 		// Check that all questions were answered 
 		// Send a post or put request to the database
