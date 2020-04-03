@@ -65,7 +65,7 @@ class SignIn extends React.Component {
 						<input type="password" id="password" onChange={this.handleChange}/>
 					</div>
 
-          <p id="error" style={{color:'red'}}>{this.state.error}</p>
+          			<p id="error" style={{color:'red'}}>{this.state.error}</p>
 					<p id="success" style={{color:'green'}}>{this.state.success}</p>
 
 					<div className="input-field">
