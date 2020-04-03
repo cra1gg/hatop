@@ -48,7 +48,7 @@ class QuizTaker extends Component {
 		console.log(this.state);
 		if(localStorage.username == null) {
 			this.setState({
-			   error: "You must be logged in to view the stats."
+			   error: "You must be logged in to view the quiz."
 			})
 			return;
 		 }
