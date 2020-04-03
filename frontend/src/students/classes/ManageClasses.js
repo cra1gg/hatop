@@ -38,9 +38,14 @@ class ManageClasses extends React.Component {
         return (
 			<div>
 				<Navbar isLogged={true}/>
-				<div className="container">
-				<span className="post card col s6"> <h3 className="text-black center"> Dashboard </h3> </span>
-
+				<div className="container"> 
+					<div className="row">
+						<div className="post card col s3"> </div>
+						<span className="col s6"> <h3 className="text-black center"> My Classes </h3> </span>
+						<div className="post card col s3"> </div>
+					</div> 
+				</div>
+				<div className="container">	
 					<DisplayClasses classes={this.state.classes} />
 				</div>
 			</div>

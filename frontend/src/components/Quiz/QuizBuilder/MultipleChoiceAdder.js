@@ -30,6 +30,7 @@ class MultipleChoiceAdder extends Component {
 			newOption: ''
 		});
 
+
 	}
 
 	removeOption = (id) => {
@@ -41,6 +42,7 @@ class MultipleChoiceAdder extends Component {
 		this.setState({
 			options
 		});
+
 	}
 
 	handleChange = (e) => {
