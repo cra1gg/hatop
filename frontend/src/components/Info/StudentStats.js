@@ -5,18 +5,26 @@ import axios from "axios";
 
 class StudentStats extends React.Component {
 	
-   state = { courses: [] }
+   state = { courses: [], error: ""}
          
    componentDidMount() {
-      var instructor_id = "davinder69"
+      if(localStorage.username == null) {
+         this.setState({
+            error: "You must be logged in to view the stats."
+         })
+         return;
+      }
+      var instructor_id = localStorage.username;
       axios.get('http://localhost:3000/user/'.concat(instructor_id)).then(res => {
+
          var class_list = res.data.classes;  
+         console.log(class_list);
          var courses = [];      
          var promises = [];
          for(var i = 0; i < class_list.length; i++){
             promises.push(
                axios.get('http://localhost:3000/classroom/'.concat(class_list[i])).then(res => {
-                  courses.push({ course_name: res.data.name, course_code: res.data.course_code, grades: res.data.marks});
+                  courses.push({ course_name: res.data.name, course_code: res.data.course_code, grades: res.data.grades});
                })
             )
          }
@@ -70,9 +78,12 @@ class StudentStats extends React.Component {
 	                     </thead>
 	                     <tbody> { this.renderTable() } </tbody>          
 	                  </table>
+                     <p id="error" style={{color:'red'}}>{this.state.error}</p>
+
 	               </div>
 	            </div>
             </div>
+            
          </div>
       )
    } 

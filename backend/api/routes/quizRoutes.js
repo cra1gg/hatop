@@ -19,8 +19,8 @@ router.put("/", (req, res) => {
         .then(result => {
             // Now add it to the class 
             console.log(result); //quiz that was just added.
-            
-            Classroom.findOneAndUpdate({course_code: req.body.courseCode}, {$push:{quizlets: result._id}}, {new: true}, (err, doc) => {
+
+            Classroom.findOneAndUpdate({ course_code: req.body.courseCode }, { $push: { quizlets: result._id } }, { new: true }, (err, doc) => {
                 if (err || !doc) {
                     console.log(err);
                     res.status(500).json({
@@ -29,7 +29,7 @@ router.put("/", (req, res) => {
                     });
                     return;
                 }
-            
+
                 res.status(200).json({
                     success: "Quiz added successfully"
                 });
@@ -45,6 +45,41 @@ router.put("/", (req, res) => {
         });
 });
 
+
+router.put("/submitQuiz", (req, res) => {
+    var studentId = req.body.username;
+    var quiz_id = req.body.quiz_id;
+    var mark = req.body.mark;
+    var courseCode = req.body.courseCode;
+
+    // Classroom.findOne({ course_code: courseCode, 'marks.student_id': studentId})
+    // .exec()
+    // .then( doc => {
+    //     console.log(doc);
+    //     res.status(200).json(doc)
+
+    // })
+    // .catch( err => {
+    //     console.log(err)
+    // });
+    // Classroom.updateOne({ course_code: value, 'marks.student_id' : studentId}, { $push: { 'marks.quizzes': [{ student_id: username, quizzes: [] }] } })// Push an empty quiz array to marks containing the newly added student id
+    //     .then(() => {
+    //         console.log("Updated the marks array");
+    //         res.status(201).json({
+    //             success: `Updated classes of user ${req.body.username} successfully.`
+    //         });
+    //     })
+    // .catch(err => {
+    //     res.status(400).json({ error: "Error: Couldn't add you to class " + value })
+    // });
+
+
+
+});
+
+
+
+
 router.get("/:quiz_id", (req, res) => {
     Quiz.findById(mongoose.Types.ObjectId(req.params.quiz_id))
         .exec()
@@ -52,30 +87,30 @@ router.get("/:quiz_id", (req, res) => {
             if (doc) {
                 res.status(200).json(doc);
             } else {
-                res.status(404).json({message: 'No valid entry found'});
-            };       
+                res.status(404).json({ message: 'No valid entry found' });
+            };
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).json({ error: err });
         });
 });
 
 
 router.get("", (req, res) => {
-	Quiz.find({})
-	.exec()
-	.then(docs => {
-	    if (docs) {
-	       res.status(200).json(docs);
-	    } else {
-	       res.status(404).json({message: "No Quizzes Available"});
-	    };
+    Quiz.find({})
+        .exec()
+        .then(docs => {
+            if (docs) {
+                res.status(200).json(docs);
+            } else {
+                res.status(404).json({ message: "No Quizzes Available" });
+            };
         })
-	.catch(err => {
-	   console.log(err);
-	   res.status(500).json({error: err});
-	});
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
 });
 
 module.exports = router;
