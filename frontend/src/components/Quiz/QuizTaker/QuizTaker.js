@@ -58,7 +58,7 @@ class QuizTaker extends Component {
 				const true_ans = this.state.questions[ans.id].answer
 				return true_ans === ans.value; 
 			})
-
+			
 			const usermark = {
 				quiz_id: this.state.quiz_id,
 				courseCode: this.state.course_code,
@@ -73,14 +73,17 @@ class QuizTaker extends Component {
 						success: res.data.success,
 						error: ""
 					})
-				}, (err) => {
-					console.log(err);
-					this.setState({
-						error: "Failed to add the mark",
-						success: ""
-					})
-				
+				})
+				.catch(err => {
+					if (this.state.success === "") {
+						this.setState({
+							error: "Failed to add quiz",
+							success: ""
+						})
+					}
 				});
+			
+				setTimeout(() => this.props.history.push("/quizzes"), 1000);
 
 		} else {
 
@@ -88,7 +91,6 @@ class QuizTaker extends Component {
 		
 		}
 
-		this.props.history.push("/quizzes");
 		// Check that all questions were answered 
 		// Send a post or put request to the database
 		// containing the grade that the user got on the quiz
@@ -144,14 +146,14 @@ class QuizTaker extends Component {
 			     <h3 className="post card"> {this.state.quiz_name} </h3>
 
 			     {questionList}
-	
+
 			   </div>
+
 
 			   <div className="center container">
 			   <form onSubmit={this.handleSubmit}>
                <input type="submit" class="btn large" value="Submit" />
 				</form>
-
 				<p id="error" style={{color:'red'}}>{this.state.error}</p>
 				<p id="success" style={{color:'green'}}>{this.state.success}</p>
 			   </div>
