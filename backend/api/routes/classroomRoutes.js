@@ -19,14 +19,14 @@ router.put("/", (req, res) => {
         .then(result => {
             console.log(result);
             res.status(200).json({
-                message: "Handling PUT request to /classroomController",
+                success: "Successfully created the class.",
                 createdClassroom: result
             });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({
-                error: err
+                error: "Couldn't create the class. A class with the id " + req.body.courseCode + " already exists."
             });
         });
 });

@@ -1,12 +1,17 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { Redirect } from 'react-router-dom'
 
 function SignedOutLinks(props) {
     localStorage.clear();
     console.log(localStorage);
     console.log("SIGNED OUT")
+    
     return(
-        <p>Signed out successfully.</p>
+        <div>
+            <p>Signed out successfully.</p>
+            {<Redirect to='' />}
+
+        </div>
     )
 
 }

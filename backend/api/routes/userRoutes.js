@@ -6,6 +6,7 @@ var jwt 		= require('jsonwebtoken');
 
 
 var User = require('../models/schemas/userSchema');
+const Classroom = require("../models/schemas/classroomSchema");
 
 router.get('/:user_id', (req, res) => {
     const id = req.params.user_id;
@@ -198,15 +199,29 @@ router.post('/enrolclass', (req, res) => {
 		}
 	}
     
-    User.updateOne({username: username}, {$push: {classes: value}})
-    .then(result => {
-        res.status(201).json({
-            success: `Updated classes of user ${req.body.username} successfully.`
+
+    Classroom.findOne({course_code: value})
+        .exec()
+        .then(doc => {
+            if (doc) {
+                User.updateOne({username: username}, {$push: {classes: value}})
+                .then(result => {
+                    res.status(201).json({
+                        success: `Updated classes of user ${req.body.username} successfully.`
+                    });
+                })
+                .catch(err => {
+                    res.status(400).json({error: "Error: Couldn't add you to class " + value}) 
+                });
+            } else {
+                res.status(404).json({error: 'No class id found'});
+            };       
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: 'No class id found'});
         });
-    })
-    .catch(err => {
-        res.status(400).json({error: "Error: Couldn't add you to class " + value}) 
-    });
+
 })
 
 
