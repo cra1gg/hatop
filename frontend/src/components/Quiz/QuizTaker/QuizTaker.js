@@ -11,6 +11,7 @@ class QuizTaker extends Component {
 		this.state = {
 			quiz_id: 0,
 			quiz_name: '',
+			course_code: '',
 			questions: [],
 			userAnswers: []
 		}
@@ -19,11 +20,10 @@ class QuizTaker extends Component {
 	componentDidMount() {
 		const quiz_id = this.props.match.params.quiz_id;
 		axios.get("http://localhost:3000/quiz/".concat(quiz_id)).then(res => {
-			var courseCode = res.data.courseCode;
 			var quiz_name = res.data.name;
 			var questions = res.data.questions;
-			console.log(courseCode);
-			this.setState({quiz_id, quiz_name, questions});
+			var course_code = res.data.courseCode;
+			this.setState({quiz_id, quiz_name, questions, course_code});
 		});
 	}
 
@@ -31,11 +31,52 @@ class QuizTaker extends Component {
 
 		e.preventDefault();
 		// Need to keep track of the answers
-		this.state.userAnswers[e.target.id - 1] = e.target.value;
+		this.state.userAnswers[e.target.id - 1] = {id: e.target.id - 1, value: e.target.value};
+
 
 	}
 
 	handleSubmit = (e) => {
+
+		e.preventDefault();
+
+		const answeredAllQuestions = this.state.userAnswers.length === this.state.questions.length;
+
+		if (answeredAllQuestions) {
+
+			const tot = this.state.userAnswers.filter(ans => {
+				const true_ans = this.state.questions[ans.id].answer
+				return true_ans === ans.value; 
+			})
+
+			const usermark = {
+				quiz_id: this.state.quiz_id,
+				courseCode: this.state.course_code,
+				total_marks: tot.length,
+				name: this.state.quiz_name
+			}
+
+			console.log(usermark);
+			axios.post('http://localhost:3000/mark/', usermark)
+				.then(res => {
+					this.setState({
+						success: res.data.success,
+						error: ""
+					})
+				}, (err) => {
+					console.log(err);
+					this.setState({
+						error: "Failed to add the mark",
+						success: ""
+					})
+				
+				});
+
+		} else {
+
+			this.setState({error: "All questions must be answered"})
+		
+		}
 
 		// Check that all questions were answered 
 		// Send a post or put request to the database
@@ -96,7 +137,7 @@ class QuizTaker extends Component {
 			   </div>
 
 			   <div className="center container">
-			     <button className="btn-large"> Submit </button>
+			     <button className="btn-large" onClick={this.handleSubmit}> Submit </button>
 			   </div>
 
 			</div>
