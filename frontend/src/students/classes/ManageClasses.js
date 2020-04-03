@@ -41,18 +41,11 @@ class ManageClasses extends React.Component {
 				<div className="container"> 
 					<div className="row">
 						<div className="post card col s3"> </div>
-						<span className="post card col s6"> <h3 className="text-black center"> Dashboard </h3> </span>
+						<span className="col s6"> <h3 className="text-black center"> My Classes </h3> </span>
 						<div className="post card col s3"> </div>
 					</div> 
 				</div>
-				<div className="container">
-					<div className="row">
-						<div className="post card">
-							<span> <h4> User Info </h4> </span>
-							<span> <h5> User Type     -     {localStorage.user_type} </h5> </span>		
-							<span> <h5> Username      -     {localStorage.username} </h5> </span>		
-						</div>
-					</div>
+				<div className="container">	
 					<DisplayClasses classes={this.state.classes} />
 				</div>
 			</div>

@@ -78,6 +78,7 @@ class QuizTaker extends Component {
 		
 		}
 
+		this.props.history.push("/quizzes");
 		// Check that all questions were answered 
 		// Send a post or put request to the database
 		// containing the grade that the user got on the quiz

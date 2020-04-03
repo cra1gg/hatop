@@ -30,17 +30,19 @@ class MultipleChoiceAdder extends Component {
 			newOption: ''
 		});
 
+
 	}
 
 	removeOption = (id) => {
 
 		const options = this.state.options.filter(option => {
-			return option.id ==! id
+			return option.id !== id;
 		});
 
 		this.setState({
 			options
 		});
+
 	}
 
 	handleChange = (e) => {
@@ -55,7 +57,7 @@ class MultipleChoiceAdder extends Component {
 			return (
 			<div className="row">
 			 <div className="col s8">
-			  <FormControlLabel value={option.value} control = {<Radio id="answer" onChange={this.props.handleChange}/>} label={option.value}/> 
+			  <FormControlLabel value={option.value} control = {<Radio id={option.id} onChange={this.props.handleChange}/>} label={option.value}/> 
 			 </div>
 			 <div className="col s2">
 			   <IconButton color="default" size="small" onClick= {() => {this.removeOption(option.id)}}> <CloseIcon/> </IconButton> 
