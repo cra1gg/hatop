@@ -1,4 +1,5 @@
 const express = require("express");
+
 const router = express.Router()
 const Quiz = require("../models/schemas/quizSchema");
 const mongoose = require("mongoose");
@@ -45,7 +46,7 @@ router.put("/", (req, res) => {
 });
 
 router.get("/:quiz_id", (req, res) => {
-    Quiz.findById(req.params.quiz_id)
+    Quiz.findById(mongoose.Types.ObjectId(req.params.quiz_id))
         .exec()
         .then(doc => {
             if (doc) {
@@ -61,12 +62,20 @@ router.get("/:quiz_id", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
+router.get("", (req, res) => {
+	Quiz.find({})
+	.exec()
+	.then(docs => {
+	    if (docs) {
+	       res.status(200).json(docs);
+	    } else {
+	       res.status(404).json({message: "No Quizzes Available"});
+	    };
+        })
+	.catch(err => {
+	   console.log(err);
+	   res.status(500).json({error: err});
+	});
+});
 
 module.exports = router;

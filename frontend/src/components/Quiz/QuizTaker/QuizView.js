@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
 import Navbar from './../../Navigation/Navbar';
 import { Link } from 'react-router-dom'; 
+import axios from 'axios';
 
 
 class QuizView extends Component {
 
-	state = {quizzes : [{id: 0, name: "CSC301 - Quiz 1 - Enterprise Design Patterns", amt: 4, date: "2017-09-09", time: 10}]} 
+	constructor(props) {
+		super(props);
+		this.state = {
+			quizzes: []
+		}
+	}
+
+	//state = {quizzes : [{id: 0, name: "CSC301 - Quiz 1 - Enterprise Design Patterns", amt: 4, date: "2017-09-09", time: 10}]} 
+
+	componentDidMount() {
+
+		axios.get('http://localhost:3000/quiz').then(res => {
+			var quizzes = res.data;
+			console.log(res.data);
+			this.setState({quizzes});
+		})
+
+	}
 
 	render() {
 
 		const quizList = this.state.quizzes.map(quiz => { 
 			return ( 
-				<div className="post card" key={quiz.id}>
+				<div className="post card" key={quiz._id}>
 				  <div className="card-content">
-				    <Link to={"/quizzes/" + quiz.id}>
-				     <span className="card-title"> {quiz.name} </span>
+				    <Link to={"/quizzes/" + quiz._id}>
+				     <span className="black-text card-title"> {quiz.quiz_name} </span>
 				    </Link>
-				    <p> {"Amount of Questions:   " + quiz.amt + "   |   " + "Due Date:   " + quiz.date + "   |   " + "Total Duration:   " + quiz.time + "   minutes"} </p>
+				    <p> {"Amount of Questions:   " + quiz.questions.length + "   |   " + "Due Date:   " + quiz.date + "   |   " + "Total Duration:   " + quiz.time + "   minutes"} </p>
 				  </div>
 				</div>
 			) 

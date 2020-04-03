@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import Navbar from "./../../Navigation/Navbar";
 import { Radio, FormControl, FormLabel, FormControlLabel, RadioGroup } from '@material-ui/core';
+import { withRouter } from 'react-router';
+import axios from 'axios';
 
 class QuizTaker extends Component {
 
-	state = {quiz_id: 0, quiz_name: "CSC301 - Quiz 1 - Enterprise Design Patterns", questions: [{id: 0, content: "Dependency Injection aims to separate the responsibility of resolving object dependency from its behaviour.", answer: "True", choices: ["True", "False"]}, {id: 1, content: "Interface segregation suggests that clients should be forced to depend on methods even if they do not use them.", answer: "False", choices:[" True", "False"]}, {content: "We would like to use client code which is currently incompatible with our application code. Which design pattern can fix this issue?", answer:"Adapter", choices: ["Adapter", "Factory", "Command"]}, {content: "Letting a class explicitly create an instance of another class can be solved by ...", answer: "Dependency Injection", choices: ["Dependency Injection Pattern", "Liskov Substitution Principle", "Interface Segregation Princliple"]}]}
+	constructor(props) {
+		super(props);
+		this.state = {
+			quiz_id: 0,
+			quiz_name: '',
+			questions: [],
+			userAnswers: []
+		}
+	}
+
+	componentDidMount() {
+		const quiz_id = this.props.match.params.quiz_id;
+		axios.get("http://localhost:3000/quiz/".concat(quiz_id)).then(res => {
+			var courseCode = res.data.courseCode;
+			var quiz_name = res.data.name;
+			var questions = res.data.questions;
+			console.log(courseCode);
+			this.setState({quiz_id, quiz_name, questions});
+		});
+	}
 
 	handleChange = (e) => {
 
@@ -14,6 +35,8 @@ class QuizTaker extends Component {
 
 	render() {
 
+		console.log(this.props.match.params.quiz_id)
+
 		const questionList = this.state.questions.map(question => {
 
 			const choices = question.choices.map(choice => {
@@ -21,7 +44,7 @@ class QuizTaker extends Component {
 				return (
 
 					<div className="center">
-					 <FormControlLabel value={choice} control = {<Radio id={question.id} onChange={this.handleChange}/>} label={choice}/>
+					 <FormControlLabel value={choice} control = {<Radio id={question.qNum} onChange={this.handleChange}/>} label={choice}/>
 					</div>
 				)
 
@@ -55,7 +78,7 @@ class QuizTaker extends Component {
 
 			<div>
 
-			   <Navbar isLogged={false} />
+			   <Navbar isLogged={true} />
 
 			   <div className="container">
 			    
@@ -77,4 +100,4 @@ class QuizTaker extends Component {
 
 }
 
-export default QuizTaker;
+export default withRouter(QuizTaker);

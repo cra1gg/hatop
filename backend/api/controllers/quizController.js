@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Quiz = require("../models/schemas/quizSchema")
 
 
-//function handle_GET(req, res, next) {
-
-//}
+function handle_GET(req, res, next) {
+	console.log(req);
+}
 
 function handle_PUT(req, res, next) {
     const quiz = new Quiz({
