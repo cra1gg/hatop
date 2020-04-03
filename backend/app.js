@@ -13,6 +13,7 @@ var mongoose_uri = "mongodb+srv://Shubham:" + encodeURIComponent(process.env.MON
 									"@hatop-5qek7.mongodb.net/hatop?retryWrites=true&w=majority"
 // const accountRoutes = require("./api/routes/accountRoutes");
 const quizRoutes = require("./api/routes/quizRoutes");
+const markRoutes = require("./api/routes/markRoutes");
 
 var mongoose_options = { useNewUrlParser: true, useUnifiedTopology: true};								
 mongoose.connect(mongoose_uri, mongoose_options)
@@ -41,6 +42,7 @@ app.use("/classroom", classroomRoutes);
 // app.use("/account", accountRoutes);
 app.use("/quiz", quizRoutes);
 app.use("/user", userRoutes);
+app.use("/mark", markRoutes);
 
 
 module.exports = app;
