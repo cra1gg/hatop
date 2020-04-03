@@ -18,8 +18,4 @@ function StudentLinks(props) {
 
 }
 
-<<<<<<< HEAD:frontend/src/components/Navigation/SignedInLinks.js
-export default SignedInLinks
-=======
-export default StudentLinks
->>>>>>> 8c77f9040ffa9d8939bf0d7b0e4276f0b02aceb4:frontend/src/components/Navigation/StudentLinks.js
+export default StudentLinks;
