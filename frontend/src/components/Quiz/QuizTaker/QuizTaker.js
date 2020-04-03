@@ -13,8 +13,12 @@ class QuizTaker extends Component {
 			quiz_name: '',
 			course_code: '',
 			questions: [],
-			userAnswers: []
+			userAnswers: [],
+			success: "",
+			error: ""
 		}
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -37,6 +41,12 @@ class QuizTaker extends Component {
 	}
 
 	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state);
+		this.setState({
+			success: "Submitted quiz successfully",
+			error: ""
+		})
 
 		e.preventDefault();
 
@@ -138,9 +148,13 @@ class QuizTaker extends Component {
 			   </div>
 
 			   <div className="center container">
-			     <button className="btn-large" onClick={this.handleSubmit}> Submit </button>
-			   </div>
+			   <form onSubmit={this.handleSubmit}>
+               <input type="submit" class="btn large" value="Submit" />
+				</form>
 
+				<p id="error" style={{color:'red'}}>{this.state.error}</p>
+				<p id="success" style={{color:'green'}}>{this.state.success}</p>
+			   </div>
 			</div>
 
 		);

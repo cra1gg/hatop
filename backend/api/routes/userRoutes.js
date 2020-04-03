@@ -206,9 +206,14 @@ router.post('/enrolclass', (req, res) => {
             if (doc) {
                 User.updateOne({username: username}, {$push: {classes: value}})
                 .then(result => {
-                    res.status(201).json({
-                        success: `Updated classes of user ${req.body.username} successfully.`
-                    });
+
+                    Classroom.updateOne({course_code: value}, {$push: {marks: [{student_id: username, quizzes: []}]}})// Push an empty quiz array to marks containing the newly added student id
+                    .then(() => {
+                        console.log("Updated the marks array");
+                        res.status(201).json({
+                            success: `Updated classes of user ${req.body.username} successfully.`
+                        });
+                    })
                 })
                 .catch(err => {
                     res.status(400).json({error: "Error: Couldn't add you to class " + value}) 
