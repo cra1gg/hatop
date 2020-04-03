@@ -46,33 +46,62 @@ router.put("/", (req, res) => {
 });
 
 
+// router.put("/submitQuiz", (req, res) => {
+//     var studentId = req.body.username;
+//     var quiz_id = req.body.quiz_id;
+//     var mark = req.body.mark;
+//     var courseCode = req.body.courseCode;
+
+//     // Classroom.findOne({ course_code: courseCode, 'marks.student_id': studentId})
+//     // .exec()
+//     // .then( doc => {
+//     //     console.log(doc);
+//     //     res.status(200).json(doc)
+
+//     // })
+//     // .catch( err => {
+//     //     console.log(err)
+//     // });
+//     // Classroom.updateOne({ course_code: value, 'marks.student_id' : studentId}, { $push: { 'marks.quizzes': [{ student_id: username, quizzes: [] }] } })// Push an empty quiz array to marks containing the newly added student id
+//     //     .then(() => {
+//     //         console.log("Updated the marks array");
+//     //         res.status(201).json({
+//     //             success: `Updated classes of user ${req.body.username} successfully.`
+//     //         });
+//     //     })
+//     // .catch(err => {
+//     //     res.status(400).json({ error: "Error: Couldn't add you to class " + value })
+//     // });
+
+
+
+// });
+
+
 router.put("/submitQuiz", (req, res) => {
-    var studentId = req.body.username;
-    var quiz_id = req.body.quiz_id;
-    var mark = req.body.mark;
+    var studentId = req.body.student_id;
+    var student_name = req.body.name;
+    var title = req.body.title;
     var courseCode = req.body.courseCode;
+    var courseName = req.body.courseName;
+    var mark = req.body.mark;
+    var max_mark = req.body.max_mark;
 
-    // Classroom.findOne({ course_code: courseCode, 'marks.student_id': studentId})
-    // .exec()
-    // .then( doc => {
-    //     console.log(doc);
-    //     res.status(200).json(doc)
 
-    // })
-    // .catch( err => {
-    //     console.log(err)
-    // });
-    // Classroom.updateOne({ course_code: value, 'marks.student_id' : studentId}, { $push: { 'marks.quizzes': [{ student_id: username, quizzes: [] }] } })// Push an empty quiz array to marks containing the newly added student id
-    //     .then(() => {
-    //         console.log("Updated the marks array");
-    //         res.status(201).json({
-    //             success: `Updated classes of user ${req.body.username} successfully.`
-    //         });
-    //     })
-    // .catch(err => {
-    //     res.status(400).json({ error: "Error: Couldn't add you to class " + value })
-    // });
-
+    Classroom.findOneAndUpdate({ course_code: courseCode }, { $push: { grades: { student_id: studentId, course_code: courseCode, course_name: courseName, title: title, student_name: student_name, mark: mark, max_mark: max_mark } } }, { new: true }, (err, doc) => {
+        if (err || !doc) {
+            console.log(err);
+            res.status(500).json({
+                error: `Couldn't submit the quiz.`
+            });
+            return;
+        }
+        console.log(doc);
+        res.status(200).json({
+            success: "Quiz submitted successfully"
+        });
+        return;
+    });
 
 
 });

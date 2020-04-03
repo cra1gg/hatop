@@ -12,7 +12,8 @@ const classSchema = mongoose.Schema({
 			quiz_id: {type: String, required: true},
 			mark: {type: Number, required: true}
 		}]
-	}]
+	}],
+	grades : { type: Array}
 });
 
 
