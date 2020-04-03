@@ -96,6 +96,7 @@ class QuizTaker extends Component {
 								success: res.data.success,
 								error: ""
 							})
+							setTimeout(() => this.props.history.push("/quizzes"), 1000);
 						}, (err) => {
 							console.log(err);
 							this.setState({

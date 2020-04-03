@@ -17,8 +17,8 @@ const ClassList = ({classes}) => {
                     </div>
                     <div className="card-action">
                     {/* Each route makes a GET request for the grades and quizzes given the classcode + username in the get request. */}
-                        <a href="/viewClasses">View grades</a>   
-                        <a href="/viewClasses">View quizzes</a>
+                        <a href="/studentStats">View grades</a>   
+                        <a href="/quizzes">View quizzes</a>
                     </div>
                 </div>
             </div>

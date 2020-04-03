@@ -35,7 +35,7 @@ class MultipleChoiceAdder extends Component {
 	removeOption = (id) => {
 
 		const options = this.state.options.filter(option => {
-			return option.id ==! id
+			return option.id !== id
 		});
 
 		this.setState({
