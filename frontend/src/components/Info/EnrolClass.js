@@ -24,7 +24,7 @@ class EnrolClass extends React.Component {
       event.preventDefault();
       if(localStorage.username == null) {
          this.setState({
-            error: "You must be logged in to enrol into a class."
+            error: "You must be logged in to enroll into a class."
          })
          return;
       }

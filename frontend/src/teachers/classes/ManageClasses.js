@@ -23,10 +23,15 @@ class ManageClasses extends React.Component {
 	}
 
 	render() {
+	
+	const user = localStorage.username;
         return (
+		    <div>
+			<div className="container"> <span className="black-text"> THIS IS SOME EXTRA TEXT </span> </div>
 			<div className="container">
 				<DisplayClasses classes={this.state.classes} />
 			</div>
+		    </div>
 		)
 
 	}

@@ -32,9 +32,14 @@ class QuizTaker extends Component {
 		e.preventDefault();
 		// Need to keep track of the answers
 		this.state.userAnswers[e.target.id - 1] = e.target.value;
-		console.log(e.target.value);
-		
 
+	}
+
+	handleSubmit = (e) => {
+
+		// Check that all questions were answered 
+		// Send a post or put request to the database
+		// containing the grade that the user got on the quiz
 	}
 
 	render() {
@@ -65,7 +70,7 @@ class QuizTaker extends Component {
 				   
 				    <FormLabel component="legend"> </FormLabel>
 
-				    <RadioGroup defaultValue={null} name="customized-radios">
+				    <RadioGroup row={true} defaultValue={null} name="customized-radios">
 			              {choices}
 				    </RadioGroup>			 
 				   
