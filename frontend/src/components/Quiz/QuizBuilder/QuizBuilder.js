@@ -153,6 +153,16 @@ class QuizBuilder extends Component {
 				})
 			});
 
+		this.setState({
+			lastid: 0,
+			name: '',
+			questions: [],
+			error: '',
+			success: '',
+			courses: [],
+			selectedCourse: ''
+		});
+
 	}
 
 	handleNameChange = (event) => {

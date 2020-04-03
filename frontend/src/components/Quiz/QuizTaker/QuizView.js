@@ -32,10 +32,10 @@ class QuizView extends Component {
 				<div className="post card" key={quiz._id}>
 				  <div className="card-content">
 				    <Link to={"/quizzes/" + quiz._id}>
-				     <span className="black-text card-title"> {quiz.quiz_name} </span>
+				     <span className="black-text card-title"> {quiz.name} </span>
 				    </Link>
-				    <p> {"Amount of Questions:   " + quiz.questions.length + "   |   " + "Due Date:   " + quiz.date + "   |   " + "Total Duration:   " + quiz.time + "   minutes"} </p>
-				  </div>
+				    <p> {"Amount of Questions:   " + quiz.questions.length + "   |  " + "Total Duration:   " + quiz.questions.length + "   minutes"} </p>
+				</div>
 				</div>
 			) 
 		}) 

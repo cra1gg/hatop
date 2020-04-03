@@ -31,11 +31,13 @@ class QuizTaker extends Component {
 
 		e.preventDefault();
 		// Need to keep track of the answers
+		this.state.userAnswers[e.target.id - 1] = e.target.value;
+		console.log(e.target.value);
+		
+
 	}
 
 	render() {
-
-		console.log(this.props.match.params.quiz_id)
 
 		const questionList = this.state.questions.map(question => {
 
@@ -44,7 +46,7 @@ class QuizTaker extends Component {
 				return (
 
 					<div className="center">
-					 <FormControlLabel value={choice} control = {<Radio id={question.qNum} onChange={this.handleChange}/>} label={choice}/>
+					 <FormControlLabel value={choice} control = {<Radio id={question.id} onChange={this.handleChange}/>} label={choice}/>
 					</div>
 				)
 
