@@ -1,4 +1,4 @@
- ![logo](https://i.imgur.com/58sFjfH.png)
+![logo](https://i.imgur.com/R5B2kFH.png)
 
 # Welcome to HaTop
 
