@@ -91,7 +91,7 @@ export default function Pricing() {
 
   return (
     <div>
-				<Navbar isLogged={false}/>
+	<Navbar/>
     <React.Fragment>
       <CssBaseline />
       {/* Hero unit */}

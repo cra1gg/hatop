@@ -4,7 +4,16 @@ import MultipleChoiceAdder from './MultipleChoiceAdder';
 
 class QuestionAdder extends Component {
 
-	state = {content: '', answer: '', type: '', choices : []}
+	constructor(props) {
+		super(props);
+		this.MCAdder = React.createRef();
+		this.state = {
+			content: '', 
+			answer: '', 
+			type: '', 
+			choices : []
+		}
+	}
 
 	handleChange = (e) => {
 		this.setState({
@@ -13,14 +22,30 @@ class QuestionAdder extends Component {
 	}
 	
 	handleAdd = (e) => {
-		e.preventDefault();	
+		e.preventDefault();
+		
+		if (this.state.type === "True/False") {
+
+			this.state.choices = ["True", "False"];
+
+		} else {
+			
+			const MCA = this.MCAdder.current;
+			const values = MCA.state.options.map(option => {
+				return option.value;
+			});
+			this.state.choices = values;
+
+		}
+
 		this.props.addQuestion(this.state);
-			this.setState({
-				content: '',
-				answer: '',
-				type: '',
-				choices : []
-			});	
+			
+		this.setState({
+			content: '',
+			answer: '',
+			type: '',
+			choices : []
+		});	
 	}
 
 	render() {
@@ -41,7 +66,7 @@ class QuestionAdder extends Component {
 		          </FormControl>
 			  ) : 
 			(
-			 <MultipleChoiceAdder handleChange={this.handleChange}/>
+			 <MultipleChoiceAdder id={"Multiple Choice"} ref={this.MCAdder} handleChange={this.handleChange}/>
 			)
 
 		}
@@ -51,7 +76,7 @@ class QuestionAdder extends Component {
 			   <p className="center" id={this.state.answer}> {this.state.answer} </p>
 			) : (
 			   <p className="center" id={this.state.answer}> {this.state.answer} </p>
-			)
+			)	
 
 		return (
 			<div className="collection-item">

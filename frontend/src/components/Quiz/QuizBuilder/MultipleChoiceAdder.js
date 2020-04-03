@@ -6,7 +6,16 @@ import CloseIcon from '@material-ui/icons/Close';
 
 class MultipleChoiceAdder extends Component {
 
-	state = { lastid: 0, answer: "", options : [], newOption: ""}
+	constructor(props) {
+		super(props);
+		this.state = {
+			lastid: 0,
+			answer: "",
+			options: [],
+			newOption: ""
+		}
+	
+	}
 
 	addOption = (e) => {
 
