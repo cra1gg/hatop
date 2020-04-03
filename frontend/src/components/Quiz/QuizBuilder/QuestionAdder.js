@@ -48,13 +48,14 @@ class QuestionAdder extends Component {
 		
 		const answers = this.state.type === "True/False" ?
 			(
-			   <h5 id={this.state.answer}> {this.state.answer} </h5>
+			   <p className="center" id={this.state.answer}> {this.state.answer} </p>
 			) : (
-			   <h5 id={this.state.answer}> {this.state.answer} </h5>
+			   <p className="center" id={this.state.answer}> {this.state.answer} </p>
 			)
 
 		return (
 			<div className="collection-item">
+			 
 			 <form onSubmit={this.handleAdd}>
 			 <div className="row">
 			  
@@ -63,7 +64,7 @@ class QuestionAdder extends Component {
 		  	  </div>
 
 		          <div className="center col s4">
-			   <button type="submit" className="btn-large waves-effect waves-light"> Add Question </button>
+			   <button type="submit" className="btn-medium waves-effect waves-light"> Add Question </button>
 			  </div>
 
 			 </div>
@@ -74,8 +75,8 @@ class QuestionAdder extends Component {
 			   <FormControl component="fieldset">
 			   <FormLabel component="legend"> Type </FormLabel>
 			    <RadioGroup name="customized-radios">
-				    <FormControlLabel value="True/False" control = {<Radio id="type" onChange={this.handleChange}/>} label="True/False" />
-				    <FormControlLabel value="Multiple Choice" control = {<Radio id="type" onChange={this.handleChange}/>}label="Multiple Choice" />
+				    <FormControlLabel value="True/False" control={<Radio id="type" onChange={this.handleChange}/>} label="True/False" />
+				    <FormControlLabel value="Multiple Choice" control={<Radio id="type" onChange={this.handleChange}/>}label="Multiple Choice" />
 		            </RadioGroup>
 		           </FormControl>
 			  </div>
@@ -85,8 +86,8 @@ class QuestionAdder extends Component {
 			</div>
 			  
 			 <div className="col s4">
-			  <div className="post card">
-			   <u> <h5 className="center"> Answer </h5> </u> <p className="center"> { answers } </p>
+			  <div className="container">
+			   <u> <p className="center text-grey"> Answer </p> </u> <p className="center"> { answers } </p>
 			  </div>
 			 </div>
 

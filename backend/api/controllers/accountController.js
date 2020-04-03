@@ -4,7 +4,7 @@ const Account = require('../models/schemas/accountSchema');
 
 /* account related db queries go here */
 function handle_GET(req, res, next) {
-    res.statue(200).json({
+    res.status(200).json({
         message: 'Handling GET requests to /accountController'
     });
 };
