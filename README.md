@@ -115,7 +115,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Interacting with the system
 
-Once the server is up and running, you should be able to navigate to `localhost:3000` and have a local copy of the project.
+Once the server is up and running, you should be able to navigate to `localhost:8000` and have a local copy of the project.
 
 ## Built With
 
