@@ -133,13 +133,13 @@ Once the server is up and running, you should be able to navigate to `localhost:
 
 * **Kyle Jang** - *Backend Design and Database* - [kylej692](https://github.com/kylej692)
 
-* **Shubham Sharma** - *Literally did everything* - [shub-sharma](https://github.com/shub-sharma)
+* **Shubham Sharma** - *Backend Design and Frontend Design* - [shub-sharma](https://github.com/shub-sharma)
 
-* **Micah Flemming** - *Made a sexy quizbuilder* - [JalonFlems](https://github.com/JalonFlems)
+* **Micah Flemming** - *Frontend Design (Quiz builder)* - [JalonFlems](https://github.com/JalonFlems)
 
-* **Rahul Nakre** - *Somehow had the least commits and yet did a ton of work* - [rahulnakre](https://github.com/rahulnakre)
+* **Rahul Nakre** - *Backend Design and Database* - [rahulnakre](https://github.com/rahulnakre)
 
-* **Davinder Jangra** - *Played Ram Ranch in Discord* - [jangra99](https://github.com/jangra99)
+* **Davinder Jangra** - *Backend Design and Database* - [jangra99](https://github.com/jangra99)
 
 ## License
 
