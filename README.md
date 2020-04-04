@@ -5,13 +5,11 @@
 HaTop is a fully featured online assessment platform for teachers to gauge attention and material comprehension. HaTop relies on donations from users and is therefore completely free for both students and teachers.
 
 ## Features:
-- Live Quizzes
+- Quizzes
 - Attendance
 - In-Depth Statistics
 - Multiple Classes
 - Clean design
-- 128-Bit AES Encryption
-- Sample text
 
 ## Getting Started
 
