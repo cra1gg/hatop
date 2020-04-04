@@ -144,7 +144,3 @@ Once the server is up and running, you should be able to navigate to `localhost:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Thank you to Shubham for existing.
